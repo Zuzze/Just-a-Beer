@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 @Component({
-  selector: 'page-home',
+  selector: 'page-profile',
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
