@@ -5,7 +5,7 @@ import { NavController } from 'ionic-angular';
   selector: 'page-add-event',
   templateUrl: 'add-event.html'
 })
-export class ContactPage {
+export class AddEventPage {
 
   constructor(public navCtrl: NavController) {
 
