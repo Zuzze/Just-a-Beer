@@ -1,17 +1,20 @@
 import UserData from './UserData'
 
 export const EventTypes = [
-    'Beer', 
-    'Food', 
-    'Sports', 
-    'Coffee', 
-    'Work', 
+    'Beer',
+    'Food',
+    'Sports',
+    'Coffee',
+    'Work',
     'Learning'
 ];
 
 export const Comments = [
     {
-        id: 1
+        id: 1,
+        author: [UserData[1].id],
+        comment: "Hey is there gluten-free beer?",
+        createdTime: new Date()
     }
 ];
 
@@ -31,4 +34,3 @@ export const EventData = [
     privateMessages: [Comments[3], Comments[4]],
 }
 ];
-
