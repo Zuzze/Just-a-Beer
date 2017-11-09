@@ -11,4 +11,11 @@ export class MeetingsPage {
 
   }
 
+  openPending() {
+
+  }
+
+  openMyHangouts() {
+
+  }
 }

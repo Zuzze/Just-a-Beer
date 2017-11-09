@@ -1,17 +1,81 @@
+<ion-menu [content]="content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>Filter Hangouts</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+      <ion-list radio-group [(ngModel)]="sort">
+          <ion-list-header>
+            Sort by
+          </ion-list-header>
+          <ion-item>
+            <ion-label>Time</ion-label>
+            <ion-radio checked="true" value="time"></ion-radio>
+          </ion-item>
+          <ion-item ion-li>
+            <ion-label>Distance</ion-label>
+            <ion-radio value="distance" checked></ion-radio>
+          </ion-item>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="type">
+        <ion-list-header>
+          Type
+        </ion-list-header>
+        <ion-item>
+          <ion-label>Beer</ion-label>
+          <ion-checkbox value="beer" checked="true"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Food</ion-label>
+          <ion-checkbox value="food"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Sports</ion-label>
+          <ion-checkbox value="sports"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Coffee</ion-label>
+          <ion-checkbox value="coffee"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Work</ion-label>
+          <ion-checkbox value="work"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>Learning</ion-label>
+          <ion-checkbox value="learning"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+      <ion-list radio-group [(ngModel)]="size">
+        <ion-list-header>
+          Size
+        </ion-list-header>
+        <ion-item>
+          <ion-label>One-on-one</ion-label>
+          <ion-radio value="one" checked="true"></ion-radio>
+        </ion-item>
+        <ion-item>
+          <ion-label>Group</ion-label>
+          <ion-radio value="group"></ion-radio>
+        </ion-item>
+      </ion-list>
+  </ion-content>
+</ion-menu>
+
 <ion-header>
   <ion-navbar>
-    <ion-title>Home</ion-title>
+    <ion-buttons start>
+      <button ion-button icon-only menuToggle>
+        <ion-icon name="options"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding #content>
   <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
 </ion-content>
