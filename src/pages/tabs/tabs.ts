@@ -5,7 +5,6 @@ import { NotificationsPage } from '../notifications/notifications';
 import { HomePage } from '../home/home';
 import { ProfilePage } from '../profile/profile';
 import { AddEventPage } from '../add-event/add-event';
-import { MeetingsPage } from '../meetings/meetings';
 
 @Component({
   templateUrl: 'tabs.html'
