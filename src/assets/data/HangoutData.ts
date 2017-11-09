@@ -15,7 +15,27 @@ export const Comments = [
         author: [UserData[1].id],
         comment: "Hey is there gluten-free beer?",
         createdTime: new Date()
+    },
+    {
+        id: 2,
+        author: [UserData[2].id],
+        comment: "Nice idea!",
+        createdTime: new Date()
+    },
+    {
+        id: 3,
+        author: [UserData[1].id],
+        comment: "Let's not invite Thomas, he's an asshole",
+        createdTime: new Date()
+    },
+    {
+        id: 4,
+        author: [UserData[4].id],
+        comment: "Agree!",
+        createdTime: new Date()
     }
+
+
 ];
 
 export const EventData = [
