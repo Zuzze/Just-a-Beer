@@ -11,11 +11,10 @@ export class MeetingsPage {
 
   }
 
-  openPending() {
+  segmentChanged() {
 
+    console.log("tab changed");
+    console.log(this);
   }
 
-  openMyHangouts() {
-
-  }
 }

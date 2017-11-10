@@ -6,6 +6,162 @@
   </ion-navbar>
 </ion-header>
 
+<!-- Tabs -->
 <ion-content padding>
+  <ion-segment [(ngModel)]="hangouts" color="primary" (ionChange)="segmentChanged()">
+    <ion-segment-button value="pending">
+      Joining
+    </ion-segment-button>
+    <ion-segment-button value="myHangouts">
+      Hosting
+    </ion-segment-button>
+  </ion-segment>
+
+<!-- first tab content -->
+  <div [ngSwitch]="hangouts">
+    <ion-list *ngSwitchCase="'pending'">
+      <ion-card>
+        <ion-navbar padding color="secondary">
+          <h2 item-start>Confirmed</h2>
+        </ion-navbar>
+        <ion-item>
+          <p>Show your best craft beer places!</p>
+        </ion-item>
+        <ion-item>
+          <ion-icon item-start name="beer"></ion-icon>
+          <p> in 2 hours </p>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="pin" item-start></ion-icon><p>Södermalm</p>
+        </ion-item>
+        <ion-item>
+          <ion-icon item-start name="person"></ion-icon>
+          <p><a href="#">PartyPenguin</a></p>
+        </ion-item>
+        <ion-row>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="people"></ion-icon>
+              <div>4</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button icon-left clear small>
+              <ion-icon name="text"></ion-icon>
+              <div>12</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button clear small>
+              <ion-icon name="key"></ion-icon>
+              <div padding>34</div>
+            </button>
+          </ion-col>
+        </ion-row>
+  </ion-card>
+  <ion-card>
+    <ion-navbar padding color="primary">
+      <h2 item-start>Pending</h2>
+    </ion-navbar>
+    <ion-item>
+      <p>Let's have a Pizza in Östermalm, who's in?</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon item-start name="pizza"></ion-icon>
+      <p> Tomorrow 18-20 </p>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="pin" item-start></ion-icon><p>Östermalm</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon item-start name="person"></ion-icon>
+      <p><a href="#">Lotta88</a></p>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="people"></ion-icon>
+          <div>3</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>3</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+  <ion-card>
+    <ion-navbar padding color="primary">
+      <h2 item-start>Pending</h2>
+    </ion-navbar>
+    <ion-item>
+      <p>Tech people in town, do you know some nice cafe to work? let's go together!</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon item-start name="pizza"></ion-icon>
+      <p> Tomorrow 19-20 </p>
+    </ion-item>
+    <ion-item>
+      <ion-icon name="pin" item-start></ion-icon><p>Östermalm</p>
+    </ion-item>
+    <ion-item>
+      <ion-icon item-start name="person"></ion-icon>
+      <p><a href="#">Dadaa</a></p>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="people"></ion-icon>
+          <div>8</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>1</div>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+</ion-list>
+
+<!-- second tab content -->
+    <ion-list *ngSwitchCase="'myHangouts'">
+      <ion-card>
+        <ion-item>
+          <p>Tech people in town, do you know some nice cafe to work? let's go together!</p>
+        </ion-item>
+        <ion-item>
+          <ion-icon item-start name="pizza"></ion-icon>
+          <p> Tomorrow 19-20 </p>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="pin" item-start></ion-icon><p>Östermalm</p>
+        </ion-item>
+        <ion-row>
+          <ion-col>
+            <button ion-button clear small>
+              <ion-icon name="people"></ion-icon>
+              <div padding>8</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button clear small>
+              <ion-icon name="text"></ion-icon>
+              <div padding>12</div>
+            </button>
+          </ion-col>
+          <ion-col>
+            <button ion-button clear small>
+              <ion-icon name="key"></ion-icon>
+              <div padding>23</div>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-list>
+  </div>
 
 </ion-content>
