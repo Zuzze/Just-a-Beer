@@ -12,9 +12,14 @@ export class MeetingsPage {
   }
 
   segmentChanged() {
-
-    console.log("tab changed");
-    console.log(this);
+    console.log(this.hangouts);
+    if(this.hangouts == "joining"){
+      document.getElementById("joining").hidden = false;
+      document.getElementById("hosting").hidden = true;
+    } else {
+      document.getElementById("joining").hidden = true;
+      document.getElementById("hosting").hidden = false;
+    }
   }
 
 }

@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
+    <ion-title align="center">
       Hangouts
     </ion-title>
   </ion-navbar>
@@ -9,17 +9,17 @@
 <!-- Tabs -->
 <ion-content padding>
   <ion-segment [(ngModel)]="hangouts" color="light" (ionChange)="segmentChanged()">
-    <ion-segment-button value="pending">
+    <ion-segment-button class="segment-activated" value="joining">
       Joining
     </ion-segment-button>
-    <ion-segment-button value="myHangouts">
+    <ion-segment-button value="hosting">
       Hosting
     </ion-segment-button>
   </ion-segment>
 
 <!-- first tab content -->
-  <div [ngSwitch]="hangouts">
-    <ion-list *ngSwitchCase="'pending'">
+  <div id="joining">
+    <ion-list>
       <ion-card color="light">
         <ion-navbar padding color="secondary">
           <h2 item-start>Confirmed</h2>
@@ -126,15 +126,17 @@
     </ion-row>
   </ion-card>
 </ion-list>
+</div>
 
 <!-- second tab content -->
-    <ion-list *ngSwitchCase="'myHangouts'">
+  <div id="hosting" hidden>
+    <ion-list>
       <ion-card color="light">
         <ion-item color="light">
           <p>Tech people in town, do you know some nice cafe to work? let's go together!</p>
         </ion-item>
         <ion-item color="light">
-          <ion-icon item-start name="pizza"></ion-icon>
+          <ion-icon item-start name="cafe"></ion-icon>
           <p> Tomorrow 19-20 </p>
         </ion-item>
         <ion-item color="light">
@@ -163,5 +165,4 @@
       </ion-card>
     </ion-list>
   </div>
-
 </ion-content>
