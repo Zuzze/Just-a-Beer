@@ -13,7 +13,6 @@ export class MeetingsPage {
 
 //workaround to bug in ion-segment component
   segmentChanged(segment) {
-    console.log(segment);
     let tab = "joining"
     if(segment.hangouts){
       tab = segment.hangouts;//default page

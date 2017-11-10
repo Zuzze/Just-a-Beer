@@ -1,27 +1,40 @@
 <ion-menu [content]="content">
   <ion-header>
-    <ion-toolbar color="secondary">
+    <ion-toolbar>
       <ion-title>Filter Hangouts</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content>
       <ion-list radio-group [(ngModel)]="sort">
-          <ion-list-header>
+          <ion-item color="secondary">
             Sort by
-          </ion-list-header>
+          </ion-item>
           <ion-item>
             <ion-label>Time</ion-label>
             <ion-radio checked="true" value="time"></ion-radio>
           </ion-item>
-          <ion-item ion-li>
+          <ion-item>
             <ion-label>Distance</ion-label>
-            <ion-radio value="distance" checked></ion-radio>
+            <ion-radio value="distance"></ion-radio>
           </ion-item>
       </ion-list>
+      <ion-list radio-group [(ngModel)]="size">
+        <ion-item color="secondary">
+          Size
+        </ion-item>
+        <ion-item>
+          <ion-label>Group</ion-label>
+          <ion-checkbox value="group" checked="true"></ion-checkbox>
+        </ion-item>
+        <ion-item>
+          <ion-label>One-on-one</ion-label>
+          <ion-checkbox value="one"></ion-checkbox>
+        </ion-item>
+      </ion-list>
       <ion-list radio-group [(ngModel)]="type">
-        <ion-list-header>
+        <ion-item color="secondary">
           Type
-        </ion-list-header>
+        </ion-item>
         <ion-item>
           <ion-label>Beer</ion-label>
           <ion-checkbox value="beer" checked="true"></ion-checkbox>
@@ -47,19 +60,6 @@
           <ion-checkbox value="learning"></ion-checkbox>
         </ion-item>
       </ion-list>
-      <ion-list radio-group [(ngModel)]="size">
-        <ion-list-header>
-          Size
-        </ion-list-header>
-        <ion-item>
-          <ion-label>One-on-one</ion-label>
-          <ion-radio value="one" checked="true"></ion-radio>
-        </ion-item>
-        <ion-item>
-          <ion-label>Group</ion-label>
-          <ion-radio value="group"></ion-radio>
-        </ion-item>
-      </ion-list>
   </ion-content>
 </ion-menu>
 
@@ -70,7 +70,7 @@
         <ion-icon name="options"></ion-icon>
       </button>
     </ion-buttons>
-    <ion-title align="center">
+    <ion-title align="center" style="padding-left:44px">
       Home
     </ion-title>
   </ion-navbar>
