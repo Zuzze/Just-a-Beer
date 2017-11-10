@@ -8,7 +8,7 @@
 
 <!-- Tabs -->
 <ion-content padding>
-  <ion-segment [(ngModel)]="hangouts" color="primary" (ionChange)="segmentChanged()">
+  <ion-segment [(ngModel)]="hangouts" color="light" (ionChange)="segmentChanged()">
     <ion-segment-button value="pending">
       Joining
     </ion-segment-button>
@@ -20,39 +20,39 @@
 <!-- first tab content -->
   <div [ngSwitch]="hangouts">
     <ion-list *ngSwitchCase="'pending'">
-      <ion-card>
+      <ion-card color="light">
         <ion-navbar padding color="secondary">
           <h2 item-start>Confirmed</h2>
         </ion-navbar>
-        <ion-item>
+        <ion-item color="light">
           <p>Show your best craft beer places!</p>
         </ion-item>
-        <ion-item>
+        <ion-item color="light">
           <ion-icon item-start name="beer"></ion-icon>
           <p> in 2 hours </p>
         </ion-item>
-        <ion-item>
+        <ion-item color="light">
           <ion-icon name="pin" item-start></ion-icon><p>Södermalm</p>
         </ion-item>
-        <ion-item>
+        <ion-item color="light">
           <ion-icon item-start name="person"></ion-icon>
-          <p><a href="#">PartyPenguin</a></p>
+          <p color="dark">PartyPenguin</p>
         </ion-item>
         <ion-row>
           <ion-col>
-            <button ion-button icon-left clear small>
+            <button ion-button icon-left clear small color="secondary">
               <ion-icon name="people"></ion-icon>
               <div>4</div>
             </button>
           </ion-col>
           <ion-col>
-            <button ion-button icon-left clear small>
+            <button ion-button icon-left clear small color="secondary">
               <ion-icon name="text"></ion-icon>
               <div>12</div>
             </button>
           </ion-col>
           <ion-col>
-            <button ion-button clear small>
+            <button ion-button clear small color="secondary">
               <ion-icon name="key"></ion-icon>
               <div padding>34</div>
             </button>
@@ -60,7 +60,7 @@
         </ion-row>
   </ion-card>
   <ion-card>
-    <ion-navbar padding color="primary">
+    <ion-navbar padding color="secondary">
       <h2 item-start>Pending</h2>
     </ion-navbar>
     <ion-item>
@@ -79,13 +79,13 @@
     </ion-item>
     <ion-row>
       <ion-col>
-        <button ion-button icon-left clear small>
+        <button ion-button icon-left clear small color="secondary">
           <ion-icon name="people"></ion-icon>
           <div>3</div>
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button icon-left clear small>
+        <button ion-button icon-left clear small color="secondary">
           <ion-icon name="text"></ion-icon>
           <div>3</div>
         </button>
@@ -93,7 +93,7 @@
     </ion-row>
   </ion-card>
   <ion-card>
-    <ion-navbar padding color="primary">
+    <ion-navbar padding color="secondary">
       <h2 item-start>Pending</h2>
     </ion-navbar>
     <ion-item>
@@ -112,13 +112,13 @@
     </ion-item>
     <ion-row>
       <ion-col>
-        <button ion-button icon-left clear small>
+        <button ion-button icon-left clear small color="secondary">
           <ion-icon name="people"></ion-icon>
           <div>8</div>
         </button>
       </ion-col>
       <ion-col>
-        <button ion-button icon-left clear small>
+        <button ion-button icon-left clear small color="secondary">
           <ion-icon name="text"></ion-icon>
           <div>1</div>
         </button>
@@ -129,32 +129,32 @@
 
 <!-- second tab content -->
     <ion-list *ngSwitchCase="'myHangouts'">
-      <ion-card>
-        <ion-item>
+      <ion-card color="light">
+        <ion-item color="light">
           <p>Tech people in town, do you know some nice cafe to work? let's go together!</p>
         </ion-item>
-        <ion-item>
+        <ion-item color="light">
           <ion-icon item-start name="pizza"></ion-icon>
           <p> Tomorrow 19-20 </p>
         </ion-item>
-        <ion-item>
+        <ion-item color="light">
           <ion-icon name="pin" item-start></ion-icon><p>Östermalm</p>
         </ion-item>
         <ion-row>
           <ion-col>
-            <button ion-button clear small>
+            <button ion-button clear small color="secondary">
               <ion-icon name="people"></ion-icon>
               <div padding>8</div>
             </button>
           </ion-col>
           <ion-col>
-            <button ion-button clear small>
+            <button ion-button clear small color="secondary">
               <ion-icon name="text"></ion-icon>
               <div padding>12</div>
             </button>
           </ion-col>
           <ion-col>
-            <button ion-button clear small>
+            <button ion-button clear small color="secondary">
               <ion-icon name="key"></ion-icon>
               <div padding>23</div>
             </button>
