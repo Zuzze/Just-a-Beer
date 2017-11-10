@@ -11,9 +11,14 @@ export class MeetingsPage {
 
   }
 
-  segmentChanged() {
-    console.log(this.hangouts);
-    if(this.hangouts == "joining"){
+//workaround to bug in ion-segment component
+  segmentChanged(segment) {
+    console.log(segment);
+    let tab = "joining"
+    if(segment.hangouts){
+      tab = segment.hangouts;//default page
+    }
+    if(tab == "joining"){
       document.getElementById("joining").hidden = false;
       document.getElementById("hosting").hidden = true;
     } else {

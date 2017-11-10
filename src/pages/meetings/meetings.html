@@ -8,8 +8,8 @@
 
 <!-- Tabs -->
 <ion-content padding>
-  <ion-segment [(ngModel)]="hangouts" color="light" (ionChange)="segmentChanged()">
-    <ion-segment-button class="segment-activated" value="joining">
+  <ion-segment [(ngModel)]="hangouts" color="light" (ionChange)="segmentChanged(this)">
+    <ion-segment-button value="joining">
       Joining
     </ion-segment-button>
     <ion-segment-button value="hosting">
@@ -18,12 +18,13 @@
   </ion-segment>
 
 <!-- first tab content -->
-  <div id="joining">
+  <div id="joining" [ngSwitch]="hangouts">
     <ion-list>
       <ion-card color="light">
         <ion-navbar padding color="secondary">
           <h2 item-start>Confirmed</h2>
         </ion-navbar>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d32579.74748916748!2d18.031406989459644!3d59.31234583489103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77e516aea773%3A0x7ad81b0f9e3a6642!2sS%C3%B6dermalm!5e0!3m2!1sen!2sse!4v1510312132965" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
         <ion-item color="light">
           <p>Show your best craft beer places!</p>
         </ion-item>
@@ -58,6 +59,9 @@
             </button>
           </ion-col>
         </ion-row>
+        <ion-row color="light">
+          <ion-col><button ion-button full color="dark">Open</button></ion-col>
+        </ion-row>
   </ion-card>
   <ion-card>
     <ion-navbar padding color="secondary">
@@ -90,6 +94,9 @@
           <div>3</div>
         </button>
       </ion-col>
+    </ion-row>
+    <ion-row color="light">
+      <ion-col><button ion-button full color="dark">Open</button></ion-col>
     </ion-row>
   </ion-card>
   <ion-card>
@@ -124,31 +131,31 @@
         </button>
       </ion-col>
     </ion-row>
+    <ion-row color="light">
+      <ion-col><button ion-button full color="dark">Open</button></ion-col>
+    </ion-row>
   </ion-card>
 </ion-list>
 </div>
 
 <!-- second tab content -->
-  <div id="hosting" hidden>
-    <ion-list>
+  <div id="hosting" hidden [ngSwitch]="hangouts">
+    <ion-list *ngSwitchCase="'hosting'">
       <ion-card color="light">
+        <ion-navbar padding color="secondary">
+          <ion-row>
+            <ion-col><ion-icon item-start name="cafe"></ion-icon><span padding>Today 18-20</span></ion-col>
+            <ion-col item-end>
+              <ion-icon name="people"></ion-icon><span padding>8</span>
+              <ion-icon name="person-add"></ion-icon><span padding>2</span>
+            </ion-col>
+          </ion-row>
+        </ion-navbar>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.799529004293!2d18.07053785122437!3d59.336300717416215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d5c98f9f455%3A0xcde99cb6f49a75b9!2sStureplan+1!5e0!3m2!1sen!2sse!4v1510312489877" width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
         <ion-item color="light">
           <p>Tech people in town, do you know some nice cafe to work? let's go together!</p>
         </ion-item>
-        <ion-item color="light">
-          <ion-icon item-start name="cafe"></ion-icon>
-          <p> Tomorrow 19-20 </p>
-        </ion-item>
-        <ion-item color="light">
-          <ion-icon name="pin" item-start></ion-icon><p>Östermalm</p>
-        </ion-item>
         <ion-row>
-          <ion-col>
-            <button ion-button clear small color="secondary">
-              <ion-icon name="people"></ion-icon>
-              <div padding>8</div>
-            </button>
-          </ion-col>
           <ion-col>
             <button ion-button clear small color="secondary">
               <ion-icon name="text"></ion-icon>
@@ -161,6 +168,9 @@
               <div padding>23</div>
             </button>
           </ion-col>
+        </ion-row>
+        <ion-row color="light">
+          <ion-col><button ion-button full color="dark">Open</button></ion-col>
         </ion-row>
       </ion-card>
     </ion-list>
