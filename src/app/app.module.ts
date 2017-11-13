@@ -9,7 +9,8 @@ import { ProfilePage } from '../pages/profile/profile';
 import { MeetingsPage } from '../pages/meetings/meetings';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-
+import { Hangout } from '../pages/hangout/hangout';
+import { HangoutCard } from '../app/components/hangout-card/hangoutCard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -21,7 +22,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ProfilePage,
     MeetingsPage,
-    TabsPage
+    TabsPage,
+    Hangout,
+    HangoutCard
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ProfilePage,
     MeetingsPage,
-    TabsPage
+    TabsPage,
+    Hangout
   ],
   providers: [
     StatusBar,
