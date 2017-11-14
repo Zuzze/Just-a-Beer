@@ -40,8 +40,6 @@ export const Comments = {
         createdTime: new Date(),
         type: CommentTypes[1], 
     }
-
-
 };
 
 export const HangoutData = [

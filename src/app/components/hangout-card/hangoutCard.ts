@@ -24,7 +24,7 @@ fromTime: String;
   }
 
   handleClick(){
-    this.navCtrl.push(Hangout, this.data); 
+    this.navCtrl.push(Hangout, {data: this.data}); 
   }
   
 }
