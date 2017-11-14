@@ -11,36 +11,36 @@ export const EventTypes = [
 
 export const CommentTypes = ['publicComment', 'privateMessage']
 
-export const Comments = {
-    0: {
+export const Comments = [
+    {
         id: 0,
-        author: [UserData[1].id],
+        author: UserData[1].id,
         comment: "Hey is there gluten-free beer?",
         createdTime: new Date(),
         type: CommentTypes[0], 
     },
-    1: {
+    {
         id: 1,
-        author: [UserData[2].id],
+        author: UserData[2].id,
         comment: "Nice idea!",
         createdTime: new Date(),
         type: CommentTypes[0], 
     },
-    2: {
+    {
         id: 2,
-        author: [UserData[1].id],
+        author: UserData[1].id,
         comment: "Let's not invite Thomas, he's an asshole",
         createdTime: new Date(),
         type: CommentTypes[1], 
     },
-    3: {
+    {
         id: 3,
-        author: [UserData[2].id],
+        author: UserData[2].id,
         comment: "Agree!",
         createdTime: new Date(),
         type: CommentTypes[1], 
     }
-};
+];
 
 export const HangoutData = [
 {
@@ -55,7 +55,7 @@ export const HangoutData = [
     confirmedUsers: [UserData[1].id],
     rejectedUsers: [],
     commentIds: [Comments[0].id, Comments[1].id],
-    privateMessageIds: [Comments[2], Comments[3]],
+    privateMessageIds: [Comments[2].id, Comments[3].id],
 },
 {
     id: 2,
@@ -69,7 +69,7 @@ export const HangoutData = [
     confirmedUsers: [UserData[2].id],
     rejectedUsers: [],
     commentIds: [Comments[0].id, Comments[1].id],
-    privateMessageIds: [Comments[2], Comments[3]],
+    privateMessageIds: [Comments[2].id, Comments[3].id],
 },
 {
     id: 3,
@@ -83,6 +83,6 @@ export const HangoutData = [
     confirmedUsers: [UserData[0].id],
     rejectedUsers: [UserData[1].id],
     commentIds: [Comments[0].id, Comments[1].id],
-    privateMessageIds: [Comments[2], Comments[3]],
+    privateMessageIds: [Comments[2].id, Comments[3].id],
 }
 ];
