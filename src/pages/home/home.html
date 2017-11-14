@@ -78,7 +78,7 @@
 <!-- First tab -->
 <ion-content padding #content>
 <ion-list>
-  <ion-card color="light">
+  <!-- ion-card color="light">
       <ion-row>
         <ion-item color="s-dark">
           <ion-icon item-start name="person"></ion-icon>
@@ -120,7 +120,7 @@
     </ion-row>
   </ion-card> 
 </ion-list>
-<!-- Second tab -->
+
 <ion-list>
   <ion-card color="light">
       <ion-row>
@@ -162,6 +162,9 @@
     <ion-row>
       <ion-col><button ion-button full color="dark">See more</button></ion-col>
     </ion-row>
-  </ion-card> 
-</ion-list>
+  </ion-card -->
+  
+    <hangout-card *ngFor="let h of hangoutData" [hangout]="h"></hangout-card> 
+  
+  </ion-list>
 </ion-content>

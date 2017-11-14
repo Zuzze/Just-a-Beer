@@ -1,0 +1,57 @@
+<ion-header>
+    <ion-navbar>
+      <ion-title align="center">
+        Hangout with {{ userData[data.owner].name }}
+      </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-card color="light">
+    <ion-navbar padding color="s-dark">
+      <ion-row>
+          <ion-icon item-start style="padding-right:10px" name="beer"></ion-icon>
+          <span item-start> {{ data. description }}</span>
+      </ion-row>
+    </ion-navbar>
+    <ion-item color="light">
+      <ion-icon item-start name="clock"></ion-icon>
+      <p> {{ fromTime + " - " + toTime }} </p>
+    </ion-item>
+    <ion-item color="light">
+      <ion-icon name="pin" item-start></ion-icon><p>{{ data.place }}</p>
+    </ion-item>
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small color="secondary">
+          <ion-icon name="people"></ion-icon>
+          <div>{{ data.confirmedUsers.length }}</div>
+        </button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col><button ion-button full color="dark">Request to join</button></ion-col>
+    </ion-row>
+  </ion-card>
+
+  <ion-segment [(ngModel)]="commentSection" color="light" (ionChange)="segmentChanged(this)">
+    <ion-segment-button value="comments">
+      Comments
+    </ion-segment-button>
+    <ion-segment-button value="messages">
+      Messages
+    </ion-segment-button>
+  </ion-segment>
+
+  <div id="comments" [ngSwitch]="commentSection">
+    <ion-list>
+        <h1>Comments here</h1>
+    </ion-list>
+  </div>
+
+  <div id="messages" [ngSwitch]="commentSection">
+        <ion-list>
+            <h1>Messages here</h1>
+        </ion-list>
+  </div>
+
+</ion-content>
