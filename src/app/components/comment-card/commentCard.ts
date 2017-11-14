@@ -3,7 +3,8 @@ import { NavController, NavParams } from 'ionic-angular';
 
 @Component({
     selector: 'comment-card',
-    templateUrl: 'commentCard.html'
+    templateUrl: 'commentCard.html',
+    styles: ['commentCard.scss']
 })
 
 export class CommentCard{

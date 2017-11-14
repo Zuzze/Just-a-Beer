@@ -5,7 +5,8 @@ import { Comments } from '../../assets/data/HangoutData';
 
 @Component({
   selector: 'hangout',
-  templateUrl: 'hangout.html'
+  templateUrl: 'hangout.html',
+  styles: ['hangout.scss']
 })
 
 export class Hangout {
@@ -16,6 +17,7 @@ export class Hangout {
   comments: any = [];
   messages: any = [];
   commentData = Comments;
+  newComment: String = "";
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.data = this.navParams.get('data');
@@ -26,10 +28,7 @@ export class Hangout {
     this.toTime = this.data.toTime.toLocaleString();
     this.segmentChanged({commentSection: "comments"});
     this.comments = this.getComments(this.commentData, this.data.commentIds);
-    console.log(this.comments[0])
     this.messages = this.getComments(this.commentData, this.data.privateMessageIds);
-    
-
   }
 
   getComments(commentData, commentIds){
@@ -41,6 +40,15 @@ export class Hangout {
       }, []);
     }
     else return [];
+  }
+
+  setComment(val){
+    this.newComment = val;
+    console.log(this.newComment);
+  }
+
+  addComment(){
+    console.log(this.newComment);
   }
 
   segmentChanged(segment) {
