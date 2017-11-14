@@ -2,36 +2,36 @@
     <ion-row>
       <ion-item color="s-dark">
         <ion-icon item-start name="person"></ion-icon>
-        <p>Girl24</p>
+        <p>{{ userData[data.owner].name }}</p>
       </ion-item>
     </ion-row>
   <ion-item color="light">
-    <p>Is anyone up for just one beer tonight? Just one</p>
+    <p> {{ data.description }}</p>
   </ion-item>
   <ion-item color="light">
     <ion-icon item-start name="beer"></ion-icon>
-    <p> Tonight 20-22 </p>
+    <p> {{ fromTime + " - " + toTime }} </p>
   </ion-item>
   <ion-item color="light">
-    <ion-icon name="pin" item-start></ion-icon><p>Östermalm</p>
+    <ion-icon name="pin" item-start></ion-icon><p> {{ data.place }} </p>
   </ion-item>
   <ion-row>
     <ion-col>
       <button ion-button icon-left clear small color="secondary">
         <ion-icon name="people"></ion-icon>
-        <div>12</div>
+        <div>{{ data.confirmedUsers.length }}</div>
       </button>
     </ion-col>
     <ion-col>
       <button ion-button icon-left clear small color="secondary">
         <ion-icon name="text"></ion-icon>
-        <div>5</div>
+        <div>{{ data.commentIds.length }}</div>
       </button>
     </ion-col>
     <ion-col>
       <button ion-button clear small color="secondary">
         <ion-icon name="key"></ion-icon>
-        <div padding>10</div>
+        <div padding>{{ data.privateMessageIds.length }}</div>
       </button>
     </ion-col>
   </ion-row>
