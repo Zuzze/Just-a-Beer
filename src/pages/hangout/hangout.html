@@ -44,14 +44,22 @@
 
   <div id="comments" [ngSwitch]="commentSection">
     <ion-list>
-        <h1>Comments here</h1>
+        <comment-card *ngFor="let comment of comments" [content]="comment" [user]="userData[comment.author]"></comment-card> 
     </ion-list>
+    <ion-item color="light">
+      <ion-input type="text" placeholder="Add comment"></ion-input>
+      <button clear item-right><ion-icon name="send"></ion-icon></button>
+     </ion-item>
   </div>
 
   <div id="messages" [ngSwitch]="commentSection">
         <ion-list>
-            <h1>Messages here</h1>
+          <comment-card *ngFor="let comment of messages" [content]="comment" [user]="userData[comment.author]"></comment-card>
         </ion-list>
+        <ion-item color="light">
+        <ion-input type="text" placeholder="Add comment"></ion-input>
+          <button clear item-right><ion-icon name="send"></ion-icon></button>
+        </ion-item>
   </div>
 
 </ion-content>
