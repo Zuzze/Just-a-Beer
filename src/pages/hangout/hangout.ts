@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { UserData } from '../../assets/data/UserData';
+import { UserData, CurrentUser } from '../../assets/data/UserData';
 import { Comments } from '../../assets/data/HangoutData';
 import { ProfilePage } from '../../pages/profile/profile';
 
@@ -21,12 +21,13 @@ export class Hangout {
   commentData = Comments;
   newComment: String = "";
   participants: String;
+  isConfirmed: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.data = this.navParams.get('data');
   }
 
-  ngOnInit(){
+ngOnInit(){
     let today = new Date();
     if(this.data.fromTime.getDate() === today.getDate()){
       this.date = "TODAY";
@@ -38,6 +39,7 @@ export class Hangout {
     this.segmentChanged({commentSection: "comments"});
     this.comments = this.getComments(this.commentData, this.data.commentIds);
     this.messages = this.getComments(this.commentData, this.data.privateMessageIds);
+    this.isConfirmed = this.data.confirmedUsers.filter( c => c === CurrentUser).length == 1; 
     //this.participants = this.data.confirmedUsers.toString(); add names of participants to the card
   }
 

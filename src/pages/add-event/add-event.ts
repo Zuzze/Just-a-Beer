@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
-import { HomePage } from '../home/home';
 import { UserData } from '../../assets/data/UserData';
 import { HangoutData } from '../../assets/data/HangoutData';
 import { EventTypes } from '../../assets/data/HangoutData';
