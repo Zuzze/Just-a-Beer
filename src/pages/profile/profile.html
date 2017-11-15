@@ -13,14 +13,14 @@
     <ion-row>
       <ion-item color="s-dark">
         <ion-icon item-start name="person"></ion-icon>
-            <h2 text="center">Girl24</h2>
+            <h2>{{ userData[0].name }}</h2> 
       </ion-item>
     </ion-row>
       <ion-card-content>
           <ion-item color="light">
             Age
               <ion-note item-end>
-               24
+              {{ userData.age }}
               </ion-note>
           </ion-item>
           <ion-item color="light">
