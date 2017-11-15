@@ -1,6 +1,6 @@
 <ion-card>
     <ion-row>
-      <ion-item class="card-header">
+      <ion-item (click)="handleProfileClick()" class="card-header">
         <ion-icon item-start name="person"></ion-icon>
         <h2>{{ userData[data.owner].name }}</h2>
       </ion-item>

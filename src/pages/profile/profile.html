@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title align="center">
-      Profile
+      {{data.name}}'s Profile
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -10,7 +10,7 @@
   <ion-card>
     <ion-row>
       <ion-item text-center>
-        <h2 padding>Girl24</h2>
+        <h2 padding>{{data.name}}</h2>
         <ion-avatar>
           <img src="http://newhorizonindia.edu/college_edu/wp-content/uploads/2016/07/member_default_img-200x200.png" style="height:150px; width:150px; margin:auto">
         </ion-avatar>
@@ -19,17 +19,17 @@
       <ion-card-content>
           <ion-item>
             <h2 item-start>Age</h2>
-            <p item-end>24</p>
+            <p item-end>{{data.age}}</p>
           </ion-item>
           <ion-item>
             <h2 item-start>Gender</h2>
-            <p item-end>Female</p>
+            <p item-end>{{data.gender}}</p>
           </ion-item>
           <ion-item>
             <h2 item-start>About</h2>
-            <p item-end text-right>Curious to meet different people and cultures</p>
+            <p item-end text-right>{{data.about}}</p>
           </ion-item>
       </ion-card-content>
     </ion-card>
-    <button ion-button round margin class="theme-button">Edit</button>
+    <button *ngIf="isCurrentUser" ion-button round margin class="theme-button">Edit</button>
 </ion-content>

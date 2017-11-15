@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Hangout } from '../../../pages/hangout/hangout';
 import { UserData } from '../../../assets/data/UserData';
+import { ProfilePage } from '../../../pages/profile/profile';
 
 @Component({
   selector: 'hangout-card',
@@ -15,7 +16,6 @@ toTime: String;
 fromTime: String;
   
   constructor(public navCtrl: NavController) {
-
   }
 
   ngOnInit(){
@@ -25,6 +25,10 @@ fromTime: String;
 
   handleClick(){
     this.navCtrl.push(Hangout, {data: this.data}); 
+  }
+
+  handleProfileClick(){
+    this.navCtrl.push(ProfilePage, {data: this.userData[this.data.owner]});
   }
   
 }
