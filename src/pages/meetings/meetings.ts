@@ -7,18 +7,42 @@ import { UserData } from '../../assets/data/UserData';
   selector: 'page-meetings',
   templateUrl: 'meetings.html'
 })
+
+
 export class MeetingsPage {
   joiningEvents = HangoutData;
   hostingEvents = HangoutData;
   userData = UserData;
+
   constructor(public navCtrl: NavController) {
-    const currentUserId = HangoutData[0].id;
-    console.log(currentUserId);
-    console.log(HangoutData);
-    this.joiningEvents = HangoutData;
-    this.hostingEvents = HangoutData.filter(hangout => hangout.owner == currentUserId);
-    console.log(this.joiningEvents);
-    console.log(this.hostingEvents);
+  }
+
+  ngOnInit(){
+    const hangoutData = HangoutData;
+    const currentUserId = 0;
+    this.hostingEvents = this.getHostingEvents(hangoutData, currentUserId);
+    this.joiningEvents = this.getJoiningEvents(hangoutData, currentUserId);
+
+  }
+
+  getHostingEvents(hangouts, userId){
+    let hosted = [];
+    if (hangouts.length > 0){
+      hosted = hangouts.filter(hangout => hangout.owner === userId);
+    }
+    console.log("HOSTING");
+    console.log(hosted);
+    return hosted;
+  }
+
+  getJoiningEvents(hangouts, userId){
+    let joining = [];
+    if (hangouts.length > 0){
+      joining = hangouts.filter(hangout => hangout.pendingUsers.includes(userId) || hangout.confirmedUsers.includes(userId));
+    }
+    console.log("JOINING");
+    console.log(joining);
+    return joining;
   }
 
 //workaround to bug in ion-segment component
