@@ -13,7 +13,7 @@
           <ion-icon item-start style="padding-right:10px" name="beer"></ion-icon>
         </ion-col>
         <ion-col col-10>
-          <h2 item-start> {{ data.description }}</h2>
+          <h2 item-start class="card-text"> {{ data.description }}</h2>
         </ion-col>
       </ion-row>
     </ion-navbar>
@@ -33,7 +33,7 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col><button ion-button round outline margin class="theme-button">Request to join</button></ion-col>
+      <ion-col><button ion-button round outline margin class="theme-button">REQUEST TO JOIN</button></ion-col>
     </ion-row>
   </ion-card>
 
@@ -51,7 +51,7 @@
     <ion-list>
         <comment-card *ngFor="let comment of comments" [content]="comment" [user]="userData[comment.author]"></comment-card>
     </ion-list>
-    <ion-item color="light">
+    <ion-item>
       <ion-input class="add-input" type="text" placeholder="Add comment"></ion-input>
       <button class="add-input-button" (click)="addComment()" clear item-right><ion-icon name="send"></ion-icon></button>
      </ion-item>

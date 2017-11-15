@@ -50,11 +50,13 @@ $CARD_HEADER: #222;
 $TOPNAV_COLOR: #222;//topnav
 $BOTTOMNAV_COLOR: #222;
 $TITLE_FONT_COLOR: #ffffff;
+$FONT_COLOR: black;
 $HIGHLIGHT_COLOR: #ffb300;//badges, icons, buttons
+$NAV_INACTIVE_ICON: #ffe54c;
 */
 
 //------- GREEN THEME ----------
-$colors: (
+/*$colors: (
   primary:    #f4f4f4,
   secondary:  #31af81,
   s-dark:     #13724f,
@@ -66,14 +68,62 @@ $colors: (
 );
 
 $GRADIENT_LIGHT: #b4edba;
-$GRADIENT_DARK: #31af81;
+$GRADIENT_DARK: #13724f;
 $CARD_COLOR: #ffffff;
 $CARD_HEADER: #31af81;
 $TOPNAV_COLOR: #31af81;
 $BOTTOMNAV_COLOR: #ffffff;
 $TITLE_FONT_COLOR: #ffffff;
+$FONT_COLOR: #222;
 $HIGHLIGHT_COLOR: #31af81;//badges, icons, buttons
+$NAV_INACTIVE_ICON: #b4edba;
+*/
 
+//------- PURPLE LIGHT THEME ----------
+/*$colors: (
+  primary:    #f4f4f4,
+  secondary:  #1a237e,
+  s-dark:     #000051,
+  s-light:    #534bae,
+  light:      #f4f4f4,
+  dark:       #222,
+  ok:         #31af81,
+  danger:     #ed7476
+);
+
+$GRADIENT_LIGHT: #f956f6;
+$GRADIENT_DARK: #1a237e;
+$CARD_COLOR: #ffffff;
+$CARD_HEADER: #ffffff;
+$TOPNAV_COLOR: #ffffff;
+$BOTTOMNAV_COLOR: #ffffff;
+$TITLE_FONT_COLOR: #000051;
+$FONT_COLOR: #000051;
+$HIGHLIGHT_COLOR: #f956f6;//badges, icons, buttons
+$NAV_INACTIVE_ICON: #534bae;
+*/
+//------- PURPLE DARK THEME ----------
+$colors: (
+  primary:    #f4f4f4,
+  secondary:  #f4f4f4,
+  s-dark:     #9b3699,
+  s-light:    #534bae,
+  light:      #f4f4f4,
+  dark:       #222,
+  ok:         #31af81,
+  danger:     #ed7476
+);
+
+$GRADIENT_LIGHT: #f956f6;
+$GRADIENT_DARK: #1a237e;
+$CARD_COLOR: #222;
+$CARD_HEADER: #222;
+$TOPNAV_COLOR: black;
+$BOTTOMNAV_COLOR: black;
+$TITLE_FONT_COLOR: white;
+$FONT_COLOR: white;
+$HIGHLIGHT_COLOR: #f956f6;//badges, icons, buttons
+$NAV_INACTIVE_ICON: #222;
 
 
 //============================== GENERAL ==================================
@@ -101,6 +151,11 @@ $HIGHLIGHT_COLOR: #31af81;//badges, icons, buttons
   color: $HIGHLIGHT_COLOR !important;
 }
 
+//inactive icons in tab background
+.tab-button-icon[ng-reflect-is-active=false] {
+  color:  $NAV_INACTIVE_ICON !important;
+}
+
 //radio buttons
 .radio-checked {
   border-color: $HIGHLIGHT_COLOR !important;
@@ -119,6 +174,15 @@ $HIGHLIGHT_COLOR: #31af81;//badges, icons, buttons
   background: $CARD_COLOR !important;
 }
 
+.card-bg {
+  background-color: $CARD_COLOR !important;
+  color: $FONT_COLOR !important;
+}
+
+.card-text {
+  color: $FONT_COLOR !important;
+}
+
 .card-header {
   background-color: $CARD_HEADER !important;
   color: $TITLE_FONT_COLOR !important;
@@ -132,11 +196,13 @@ h1, h2, h3, h4, h5 {
   font-family: 'Oswald';
   text-transform: uppercase;
   font-weight: bold;
+  //color: $TITLE_FONT_COLOR !important; //comment out if CARD_COLOR is light
 }
 
 .theme-button {
-  color: $HIGHLIGHT_COLOR !important;
-  border-color: $HIGHLIGHT_COLOR !important;
+  color: $FONT_COLOR !important;
+  border-color: transparent !important; //check
+  background: $BOTTOMNAV_COLOR !important;
   width:90%;
 }
 
@@ -145,6 +211,10 @@ h1, h2, h3, h4, h5 {
   text-transform: uppercase;
   font-weight: bold;
   color: $TITLE_FONT_COLOR !important;
+}
+
+.ion-item > h1,h2,h3,h4,h5,p {
+  color: $FONT_COLOR !important
 }
 
  .theme-font{
@@ -157,12 +227,13 @@ h1, h2, h3, h4, h5 {
   color: $TITLE_FONT_COLOR !important;
 }
 
-.picker-opt-selected, .picker-button, .item-cover {
-  color: $HIGHLIGHT_COLOR !important;
+.picker-wrapper, .picker-toolbar, .picker-opt {
+  background: $CARD_COLOR !important;
+  color: $FONT_COLOR !important;
 }
 
-.alert-md [aria-checked=true] .alert-radio-icon {
-  border-color: red !important;
+.picker-opt-selected, .picker-button, .item-cover {
+  color: $HIGHLIGHT_COLOR !important;
 }
 
 //modal radio button
@@ -184,6 +255,10 @@ h1, h2, h3, h4, h5 {
 
 .back-button {
   color: $TITLE_FONT_COLOR !important;
+}
+
+.add-input-button {
+  background: transparent !important;
 }
 
 

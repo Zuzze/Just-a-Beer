@@ -7,29 +7,29 @@
 </ion-header>
 
 <ion-content padding class="background">
-  <ion-card>
+  <ion-card class="card-bg">
     <ion-row>
-      <ion-item text-center>
-        <h2 padding>{{data.name}}</h2>
+      <ion-item text-center class="card-bg">
+        <h2 padding class="card-text">{{data.name}}</h2>
         <ion-avatar>
           <img src="http://newhorizonindia.edu/college_edu/wp-content/uploads/2016/07/member_default_img-200x200.png" style="height:150px; width:150px; margin:auto">
         </ion-avatar>
       </ion-item>
     </ion-row>
      <ion-card-content>
-          <ion-item>
-            <h2 item-start>Age</h2>
-            <p item-end>{{data.age}}</p>
+          <ion-item class="card-bg">
+            <h2 item-start class="card-text">Age</h2>
+            <p item-end class="card-text">{{data.age}}</p>
           </ion-item>
-          <ion-item>
-            <h2 item-start>Gender</h2>
-            <p item-end>{{data.gender}}</p>
+          <ion-item class="card-bg">
+            <h2 item-start class="card-text">Gender</h2>
+            <p item-end class="card-text">{{data.gender}}</p>
           </ion-item>
-          <ion-item>
-            <h2 item-start>About</h2>
-            <p item-end text-right>{{data.about}}</p>
+          <ion-item class="card-bg">
+            <h2 class="card-text" item-start>About</h2>
+            <p class="card-text" item-end text-right>{{data.about}}</p>
           </ion-item>
       </ion-card-content>
     </ion-card>
-    <button *ngIf="isCurrentUser" ion-button round margin class="theme-button">Edit</button>
+    <button *ngIf="isCurrentUser" ion-button round margin class="theme-button">EDIT</button>
 </ion-content>
