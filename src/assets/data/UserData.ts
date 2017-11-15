@@ -4,6 +4,7 @@ export const Genders = [
     'Other'
 ];
 
+export const CurrentUser = 0;
 
 export const UserData = {
     0: {
