@@ -6,7 +6,7 @@
   </ion-header>
   <ion-content>
       <ion-list radio-group [(ngModel)]="sort">
-          <ion-item color="secondary">
+          <ion-item color="s-light">
             Sort by
           </ion-item>
           <ion-item>
@@ -19,7 +19,7 @@
           </ion-item>
       </ion-list>
       <ion-list radio-group [(ngModel)]="size">
-        <ion-item color="secondary">
+        <ion-item color="s-light">
           Size
         </ion-item>
         <ion-item>
@@ -32,7 +32,7 @@
         </ion-item>
       </ion-list>
       <ion-list radio-group [(ngModel)]="type">
-        <ion-item color="secondary">
+        <ion-item color="s-light">
           Type
         </ion-item>
         <ion-item>
@@ -44,20 +44,8 @@
           <ion-checkbox value="food"></ion-checkbox>
         </ion-item>
         <ion-item>
-          <ion-label>Sports</ion-label>
-          <ion-checkbox value="sports"></ion-checkbox>
-        </ion-item>
-        <ion-item>
           <ion-label>Coffee</ion-label>
           <ion-checkbox value="coffee"></ion-checkbox>
-        </ion-item>
-        <ion-item>
-          <ion-label>Work</ion-label>
-          <ion-checkbox value="work"></ion-checkbox>
-        </ion-item>
-        <ion-item>
-          <ion-label>Learning</ion-label>
-          <ion-checkbox value="learning"></ion-checkbox>
         </ion-item>
       </ion-list>
   </ion-content>
@@ -67,7 +55,7 @@
   <ion-navbar>
     <ion-buttons end>
       <button ion-button icon-only menuToggle>
-        <ion-icon name="options"></ion-icon>
+        <ion-icon name="options" class="navbar-icon"></ion-icon>
       </button>
     </ion-buttons>
     <ion-title align="center" style="padding-left:44px">
@@ -76,7 +64,7 @@
   </ion-navbar>
 </ion-header>
 <!-- First tab -->
-<ion-content padding #content>
+<ion-content padding #content class="background">
 <ion-list>
   <!-- ion-card color="light">
       <ion-row>
@@ -118,7 +106,7 @@
     <ion-row>
       <ion-col><button ion-button full color="dark">See more</button></ion-col>
     </ion-row>
-  </ion-card> 
+  </ion-card>
 </ion-list>
 
 <ion-list>
@@ -163,8 +151,8 @@
       <ion-col><button ion-button full color="dark">See more</button></ion-col>
     </ion-row>
   </ion-card -->
-  
-    <hangout-card *ngFor="let h of hangoutData" [hangout]="h"></hangout-card> 
-  
+
+    <hangout-card *ngFor="let h of hangoutData" [hangout]="h"></hangout-card>
+
   </ion-list>
 </ion-content>

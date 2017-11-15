@@ -1,41 +1,41 @@
-<ion-card color="light">
+<ion-card>
     <ion-row>
-      <ion-item color="s-dark">
+      <ion-item class="card-header">
         <ion-icon item-start name="person"></ion-icon>
-        <p>{{ userData[data.owner].name }}</p>
+        <h2>{{ userData[data.owner].name }}</h2>
       </ion-item>
     </ion-row>
-  <ion-item color="light">
+  <ion-item>
     <p> {{ data.description }}</p>
   </ion-item>
-  <ion-item color="light">
-    <ion-icon item-start name="beer"></ion-icon>
+  <ion-item>
+    <ion-icon item-start name="beer" color="s-dark"></ion-icon>
     <p> {{ fromTime + " - " + toTime }} </p>
   </ion-item>
-  <ion-item color="light">
-    <ion-icon name="pin" item-start></ion-icon><p> {{ data.place }} </p>
+  <ion-item>
+    <ion-icon name="pin" item-start color="s-dark"></ion-icon><p> {{ data.place }} </p>
   </ion-item>
   <ion-row>
     <ion-col>
-      <button ion-button icon-left clear small color="secondary">
+      <button ion-button icon-left clear small color="secondary" style="font-size:1.2em">
         <ion-icon name="people"></ion-icon>
         <div>{{ data.confirmedUsers.length }}</div>
       </button>
     </ion-col>
     <ion-col>
-      <button ion-button icon-left clear small color="secondary">
+      <button ion-button icon-left clear small color="secondary" style="font-size:1.2em">
         <ion-icon name="text"></ion-icon>
         <div>{{ data.commentIds.length }}</div>
       </button>
     </ion-col>
     <ion-col>
-      <button ion-button clear small color="secondary">
+      <button ion-button clear small color="secondary" style="font-size:1.2em">
         <ion-icon name="key"></ion-icon>
         <div padding>{{ data.privateMessageIds.length }}</div>
       </button>
     </ion-col>
   </ion-row>
   <ion-row>
-    <ion-col><button ion-button full color="dark" (click)="handleClick()">See more</button></ion-col>
+    <ion-col text-center><button class="title-font theme-button" ion-button outline round margin-bottom (click)="handleClick()">See more</button></ion-col>
   </ion-row>
 </ion-card>

@@ -5,31 +5,31 @@
       </ion-title>
     </ion-navbar>
 </ion-header>
-<ion-content padding>
-  <ion-card color="light">
-    <ion-navbar padding color="s-dark">
+<ion-content padding class="background">
+  <ion-card>
+    <ion-navbar padding>
       <ion-row>
           <ion-icon item-start style="padding-right:10px" name="beer"></ion-icon>
           <span item-start> {{ data. description }}</span>
       </ion-row>
     </ion-navbar>
-    <ion-item color="light">
+    <ion-item>
       <ion-icon item-start name="clock"></ion-icon>
       <p> {{ fromTime + " - " + toTime }} </p>
     </ion-item>
-    <ion-item color="light">
+    <ion-item>
       <ion-icon name="pin" item-start></ion-icon><p>{{ data.place }}</p>
     </ion-item>
     <ion-row>
       <ion-col>
-        <button ion-button icon-left clear small color="secondary">
+        <button ion-button icon-left clear small color="dark">
           <ion-icon name="people"></ion-icon>
           <div>{{ data.confirmedUsers.length }}</div>
         </button>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col><button ion-button full color="dark">Request to join</button></ion-col>
+      <ion-col><button ion-button outline round margin class="theme-button">Request to join</button></ion-col>
     </ion-row>
   </ion-card>
 
