@@ -261,6 +261,19 @@ h1, h2, h3, h4, h5 {
   background: transparent !important;
 }
 
+//segments aka sub tabs
+.theme-segment {
+  background: $NAV_INACTIVE_ICON;
+}
+
+.theme-segment .item-cover[aria-checked=true] {
+  background: $BOTTOMNAV_COLOR;
+}
+
+.theme-segment .radio-icon {
+  visibility: hidden;
+}
+
 
 // App Theme
 // --------------------------------------------------

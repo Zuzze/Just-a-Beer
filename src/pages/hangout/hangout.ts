@@ -39,7 +39,7 @@ ngOnInit(){
     this.segmentChanged({commentSection: "comments"});
     this.comments = this.getComments(this.commentData, this.data.commentIds);
     this.messages = this.getComments(this.commentData, this.data.privateMessageIds);
-    this.isConfirmed = this.data.confirmedUsers.filter( c => c === CurrentUser).length == 1; 
+    this.isConfirmed = this.data.confirmedUsers.filter( c => c === CurrentUser).length == 1;
     //this.participants = this.data.confirmedUsers.toString(); add names of participants to the card
   }
 
@@ -64,14 +64,12 @@ ngOnInit(){
   }
 
   segmentChanged(segment) {
-    let tab = "comments"
-    if(segment.commentSection){
-      tab = segment.commentSection;//default page
-    }
-    if(tab == "comments"){
+    console.log(segment);
+    if(segment == "messages"){
       document.getElementById("comments").hidden = false;
       document.getElementById("messages").hidden = true;
     } else {
+      //also default
       document.getElementById("comments").hidden = true;
       document.getElementById("messages").hidden = false;
     }
