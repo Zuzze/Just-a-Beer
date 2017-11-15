@@ -53,14 +53,18 @@
 
 <ion-header>
   <ion-navbar>
-    <ion-buttons end>
-      <button ion-button icon-only menuToggle>
-        <ion-icon name="options" class="navbar-icon"></ion-icon>
-      </button>
-    </ion-buttons>
-    <ion-title align="center" style="padding-left:44px">
-      Just a Beer
-    </ion-title>
+    <ion-row>
+      <ion-col col-2>
+        <button start ion-button icon-only menuToggle>
+          <ion-icon name="options" class="navbar-icon"></ion-icon>
+        </button>
+      </ion-col>
+      <ion-col col-10>
+        <ion-title align="center" style="margin-left:-44px">
+          Just a Beer
+        </ion-title>
+      </ion-col>
+    </ion-row>
   </ion-navbar>
 </ion-header>
 <!-- First tab -->
