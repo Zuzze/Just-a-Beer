@@ -8,33 +8,33 @@
 
 <ion-content class="background">
   <ion-list>
-    <ion-item class="card-bg">
+    <!-- ion-item>
         <ion-label fixed>Title</ion-label>
-        <ion-input type="text" value=""></ion-input>
-    </ion-item>
+        <ion-input type="text" value="" [(ngModel)]="title"></ion-input>
+    </ion-item -->
     <ion-item class="card-bg">
         <ion-label fixed>Description</ion-label>
-        <ion-input type="text" value=""></ion-input>
+        <ion-textarea value="" [(ngModel)]="description"></ion-textarea>
     </ion-item>
     <ion-item class="card-bg">
         <ion-label fixed>Date</ion-label>
-        <ion-datetime displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" ></ion-datetime>
+        <ion-datetime displayFormat="DD.MM.YYYY" pickerFormat="DD.MM.YYYY" [(ngModel)]="date"></ion-datetime>
     </ion-item>
     <ion-item class="card-bg">
         <ion-label fixed>Start time</ion-label>
-        <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" ></ion-datetime>
+        <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="startTime"></ion-datetime>
     </ion-item>
     <ion-item class="card-bg">
         <ion-label fixed>End time</ion-label>
-        <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" class="card-bg" ></ion-datetime>
+        <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="endTime" class="card-bg"></ion-datetime>
     </ion-item>
     <ion-item class="card-bg">
         <ion-label fixed>Location</ion-label>
-        <ion-input type="text" value=""></ion-input>
+        <ion-input type="text" value="" [(ngModel)]="location"></ion-input>
     </ion-item>
     <ion-item class="card-bg">
-        <ion-label class="card-header">Type of event</ion-label>
-        <ion-select class="card-bg">
+        <ion-label>Type of event</ion-label>
+        <ion-select [(ngModel)]="type" class="card-bg">
           <ion-option value="beer">Beer</ion-option>
           <ion-option value="coffee">Coffee</ion-option>
           <ion-option value="food">Food</ion-option>
@@ -44,5 +44,6 @@
         </ion-select>
       </ion-item>
     </ion-list>
-    <button ion-button round margin class="theme-button">CREATE</button>
+    <button ion-button round margin class="theme-button" (click)="handleClick()">CREATE</button>
+    <button ion-button round margin-left margin-right class="theme-button" (click)="cancelCreateEvent()">CANCEL</button>
 </ion-content>

@@ -4,46 +4,46 @@
       <ion-title>Filter Hangouts</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <ion-content class="card-bg">
       <ion-list radio-group>
-          <ion-item color="s-light">
+          <ion-item color="secondary">
             Sort by
           </ion-item>
-          <ion-item>
+          <ion-item class="card-bg">
             <ion-label>Time</ion-label>
             <ion-radio checked value="time"></ion-radio>
           </ion-item>
-          <ion-item>
+          <ion-item class="card-bg">
             <ion-label>Distance</ion-label>
             <ion-radio value="distance"></ion-radio>
           </ion-item>
       </ion-list>
       <ion-list radio-group [(ngModel)]="size">
-        <ion-item color="s-light">
+        <ion-item color="secondary">
           Size
         </ion-item>
-        <ion-item>
+        <ion-item class="card-bg">
           <ion-label>Group</ion-label>
           <ion-checkbox value="group" checked="true"></ion-checkbox>
         </ion-item>
-        <ion-item>
+        <ion-item class="card-bg">
           <ion-label>One-on-one</ion-label>
           <ion-checkbox value="one"></ion-checkbox>
         </ion-item>
       </ion-list>
       <ion-list radio-group [(ngModel)]="type">
-        <ion-item color="s-light">
+        <ion-item color="secondary">
           Type
         </ion-item>
-        <ion-item>
+        <ion-item class="card-bg">
           <ion-label>Beer</ion-label>
           <ion-checkbox value="beer" checked="true"></ion-checkbox>
         </ion-item>
-        <ion-item>
+        <ion-item class="card-bg">
           <ion-label>Food</ion-label>
           <ion-checkbox value="food"></ion-checkbox>
         </ion-item>
-        <ion-item>
+        <ion-item class="card-bg">
           <ion-label>Coffee</ion-label>
           <ion-checkbox value="coffee"></ion-checkbox>
         </ion-item>

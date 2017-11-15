@@ -26,10 +26,10 @@
     </ion-item>
     <ion-row>
       <ion-col>
-        <button ion-button icon-left clear small color="s-dark">
-          <ion-icon name="people"></ion-icon>
-          <div>{{ data.confirmedUsers.length }}</div>
-        </button>
+        <ion-icon class="people-icon" color="s-dark" name="people"></ion-icon>
+        <ion-chip class="people-chip" *ngFor="let u of data.confirmedUsers" (click)="handleProfileClick(u)" >
+          <ion-label>{{userData[u].name}}</ion-label>
+        </ion-chip>
       </ion-col>
     </ion-row>
     <ion-row>
@@ -58,14 +58,19 @@
   </div>
 
   <div id="messages" [ngSwitch]="commentSection">
-        <ion-list>
-          <comment-card *ngFor="let comment of messages" [content]="comment" [user]="userData[comment.author]"></comment-card>
-        </ion-list>
-        <ion-item color="light">
-        <ion-input class="add-input" [value]="newComment" (input)="setComment($event.target.value)" type="text" placeholder="Add comment"></ion-input>
-          <button class="add-input-button" (click)="addComment()" clear item-right><ion-icon class="icon" color="s-dark" name="send"></ion-icon></button>
-        </ion-item>
-  </div>
+        <div *ngIf="isConfirmed">
+          <ion-list>
+            <comment-card *ngFor="let comment of messages" [content]="comment" [user]="userData[comment.author]"></comment-card>
+          </ion-list>
+          <ion-item color="light">
+          <ion-input class="add-input" [value]="newComment" (input)="setComment($event.target.value)" type="text" placeholder="Add comment"></ion-input>
+            <button class="add-input-button" (click)="addComment()" clear item-right><ion-icon class="icon" color="s-dark" name="send"></ion-icon></button>
+          </ion-item>
+        </div>
+        <div *ngIf="!isConfirmed">
+            <ion-card class="restricted-message"><ion-icon color="s-dark" name="lock"> </ion-icon><p>You will be able to access this section when you are accepted to the hangout.</p></ion-card>
+        </div>
+      </div>
 </div>
 
 </ion-content>
