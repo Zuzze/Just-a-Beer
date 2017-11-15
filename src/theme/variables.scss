@@ -94,6 +94,24 @@ $HIGHLIGHT_COLOR: #31af81;//badges, icons, buttons
   color: $TITLE_FONT_COLOR !important;
 }
 
+//active color in tabbar
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon {
+  color: $HIGHLIGHT_COLOR !important;
+}
+
+//radio buttons
+.radio-checked {
+  border-color: $HIGHLIGHT_COLOR !important;
+}
+
+.radio-checked .radio-inner {
+  background: $HIGHLIGHT_COLOR !important;
+}
+
+.item-radio-checked > div > div > .label{
+  color: $HIGHLIGHT_COLOR;
+}
+
 //card color
 .card, .card > .item-block {
   background: $CARD_COLOR !important;

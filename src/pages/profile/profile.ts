@@ -1,28 +1,18 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { UserData } from '../../assets/data/UserData';
-import { HangoutData } from '../../assets/data/HangoutData';
+import { CurrentUser, UserData } from '../../assets/data/UserData';
 
 @Component({
   selector: 'page-profile',
   templateUrl: 'profile.html'
 })
+
 export class ProfilePage {
-  data: any;
-  userData =  UserData;
-  currentUserId = HangoutData[1].id;
+data : any;
+isCurrentUser: boolean = true;
 
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.data = this.navParams.get('data');
-    //console.log(this.profileData);
-    console.log(this.userData);
-    console.log(this.currentUserId);
-  }
+constructor(public navCtrl: NavController, public navParams: NavParams) {
+  this.data = this.navParams.get('data') ? this.navParams.get('data') : UserData[CurrentUser];
+  this.isCurrentUser = this.data.id === CurrentUser;
 }
-
-//ngOnInit(){
-// this.profileData = this.getProfile(this.userData.Id) 
-//}
-
-//filterUsers(userData, )
+}

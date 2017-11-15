@@ -14,21 +14,30 @@ export class Hangout {
   userData = UserData;
   toTime: String;
   fromTime: String;
+  date: String;
   comments: any = [];
   messages: any = [];
   commentData = Comments;
   newComment: String = "";
+  participants: String;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.data = this.navParams.get('data');
   }
 
   ngOnInit(){
-    this.fromTime = this.data.fromTime.toLocaleString();
-    this.toTime = this.data.toTime.toLocaleString();
+    let today = new Date();
+    if(this.data.fromTime.getDate() === today.getDate()){
+      this.date = "TODAY";
+    } else {
+      this.date = this.data.fromTime.getDate().toLocaleString() + "/" + this.data.fromTime.getMonth().toLocaleString();
+    }
+    this.fromTime = this.data.fromTime.getHours().toLocaleString();
+    this.toTime = this.data.toTime.getHours().toLocaleString();
     this.segmentChanged({commentSection: "comments"});
     this.comments = this.getComments(this.commentData, this.data.commentIds);
     this.messages = this.getComments(this.commentData, this.data.privateMessageIds);
+    //this.participants = this.data.confirmedUsers.toString(); add names of participants to the card
   }
 
   getComments(commentData, commentIds){
