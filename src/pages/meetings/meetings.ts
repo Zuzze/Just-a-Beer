@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 import { HangoutData } from '../../assets/data/HangoutData';
 import { UserData } from '../../assets/data/UserData';
 
@@ -7,18 +7,51 @@ import { UserData } from '../../assets/data/UserData';
   selector: 'page-meetings',
   templateUrl: 'meetings.html'
 })
+
+
 export class MeetingsPage {
   joiningEvents = HangoutData;
   hostingEvents = HangoutData;
   userData = UserData;
+
   constructor(public navCtrl: NavController) {
-    const currentUserId = HangoutData[0].id;
-    console.log(currentUserId);
-    console.log(HangoutData);
-    this.joiningEvents = HangoutData;
-    this.hostingEvents = HangoutData.filter(hangout => hangout.owner == currentUserId);
-    console.log(this.joiningEvents);
-    console.log(this.hostingEvents);
+  }
+
+  ngOnInit(){
+    const hangoutData = HangoutData;
+    const currentUserId = 0;
+    this.hostingEvents = this.getHostingEvents(hangoutData, currentUserId);
+    this.joiningEvents = this.getJoiningEvents(hangoutData, currentUserId);
+
+  }
+
+  getHostingEvents(hangouts, userId){
+    let hosted = [];
+    if (hangouts.length > 0){
+      for(var h = 0; h < hangouts.length; h++){
+        console.log(hangouts[h].owner);
+        if(hangouts[h].owner === userId){
+          hosted.push(hangouts[h]);
+        }
+      }
+    }
+    console.log("HOSTING");
+    console.log(hosted);
+    return hosted;
+  }
+
+  getJoiningEvents(hangouts, userId){
+    let joining = [];
+    if (hangouts.length > 0){
+      for(var h = 0; h < hangouts.length; h++){
+        if(hangouts[h].pendingUsers.includes(userId) || hangouts[h].confirmedUsers.includes(userId)){
+          joining.push(hangouts[h]);
+        }
+      }
+    }
+    console.log("JOINING");
+    console.log(joining);
+    return joining;
   }
 
 //workaround to bug in ion-segment component

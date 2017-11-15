@@ -15,16 +15,23 @@ export const UserData = {
     },
     1: {
         id: 1,
-        name: 'Girl45',
+        name: 'PartyPenguin',
         about: 'Lalalal',
-        gender: Genders[1],
+        gender: Genders[2],
         age: 25
     },
     2: {
         id: 2,
-        name: 'Girl56',
+        name: 'Matt28',
         about: 'Lalalal',
-        gender: Genders[1],
+        gender: Genders[0],
+        age: 32
+    },
+    3: {
+        id: 2,
+        name: 'Anna',
+        about: 'Not all who wander are lost',
+        gender: Genders[0],
         age: 32
     }
 };
