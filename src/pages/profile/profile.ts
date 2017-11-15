@@ -9,10 +9,20 @@ import { HangoutData } from '../../assets/data/HangoutData';
 })
 export class ProfilePage {
   data: any;
-  userData = UserData;
+  userData =  UserData;
+  currentUserId = HangoutData[1].id;
+
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.data = this.navParams.get('data');
+    //console.log(this.profileData);
+    console.log(this.userData);
+    console.log(this.currentUserId);
   }
 }
 
+//ngOnInit(){
+// this.profileData = this.getProfile(this.userData.Id) 
+//}
+
+//filterUsers(userData, )

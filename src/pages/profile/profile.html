@@ -9,31 +9,17 @@
 <ion-content padding class="background">
   <ion-card>
     <ion-row>
-<<<<<<< HEAD
-      <ion-item color="s-dark">
-        <ion-icon item-start name="person"></ion-icon>
-            <h2>{{ userData[0].name }}</h2> 
-      </ion-item>
-    </ion-row>
-      <ion-card-content>
-          <ion-item color="light">
-            Age
-              <ion-note item-end>
-              {{ userData.age }}
-              </ion-note>
-=======
       <ion-item text-center>
-        <h2 padding>Girl24</h2>
+        <!--<h2 padding>{{ userData[0].name }}</h2> -->
         <ion-avatar>
           <img src="http://newhorizonindia.edu/college_edu/wp-content/uploads/2016/07/member_default_img-200x200.png" style="height:150px; width:150px; margin:auto">
         </ion-avatar>
       </ion-item>
     </ion-row>
-      <ion-card-content>
+     <ion-card-content>
           <ion-item>
             <h2 item-start>Age</h2>
             <p item-end>24</p>
->>>>>>> 8adad13c945ff4661cdb56f2a50fbab43b92f930
           </ion-item>
           <ion-item>
             <h2 item-start>Gender</h2>
@@ -44,6 +30,6 @@
             <p item-end text-right>Curious to meet different people and cultures</p>
           </ion-item>
       </ion-card-content>
-    </ion-card>
-    <button ion-button round margin class="theme-button">Edit</button>
+  </ion-card>
+    <button ion-button round margin class="theme-button" id="edit">Edit</button>
 </ion-content>
