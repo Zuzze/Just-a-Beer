@@ -1,0 +1,19 @@
+.comment-item{
+    padding-left: 8px;
+    
+    .icon{
+        background: color($colors, s-dark, base);
+        border-radius: 50%;
+        padding: 3px;
+    }
+
+    .user-name{
+        color: color($colors, s-dark, base);
+    }
+
+    .item-inner{
+        margin-left: 4px !important;
+        height: 20px;
+        font-size: 9pt;
+    }
+}

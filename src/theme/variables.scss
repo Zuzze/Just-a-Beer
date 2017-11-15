@@ -4,7 +4,11 @@
 // Font path is used to include ionicons,
 // roboto, and noto sans fonts
 $font-path: "../assets/fonts";
-
+@font-face{
+font-family: 'Oswald';
+src: url('../assets/fonts/Oswald-Regular.ttf');
+font-style: normal;
+}
 
 // The app direction is used to include
 // rtl styles in your app. For more info, please see:
@@ -23,47 +27,119 @@ $app-direction: ltr;
 // http://ionicframework.com/docs/theming/overriding-ionic-variables/
 
 
-
-
-// Named Color Variables
-// --------------------------------------------------
-// Named colors makes it easy to reuse colors on various components.
-// It's highly recommended to change the default colors
-// to match your app's branding. Ionic uses a Sass map of
-// colors so you can add, rename and remove colors as needed.
-// The "primary" color is the only required color in the map.
-
+//------- YELLOW THEME ----------
+//Black and Yellow theme
+/*
 $colors: (
   primary:    #f4f4f4,
   secondary:  #ffb300,
   s-dark:     #c68400,
   s-light:    #ffe54c,
-  danger:     #ff5722,
   light:      #f4f4f4,
   dark:       #222,
   grey:       #707070,
-  ok:         #689f38
 );
 
+//Yellow background
+$GRADIENT_LIGHT: #ffe54c;
+$GRADIENT_DARK: #c68400;
+$CARD_COLOR: #ffffff;
+$CARD_HEADER: #222;
+$TOPNAV_COLOR: #222;//topnav
+$BOTTOMNAV_COLOR: #222;
+$TITLE_FONT_COLOR: #ffffff;
+$HIGHLIGHT_COLOR: #ffb300;//badges, icons, buttons
+*/
 
-// App iOS Variables
-// --------------------------------------------------
-// iOS only Sass variables can go here
+//------- GREEN THEME ----------
+$colors: (
+  primary:    #f4f4f4,
+  secondary:  #31af81,
+  s-dark:     #13724f,
+  s-light:    #b4edba,
+  light:      #f4f4f4,
+  dark:       #222,
+  ok:         #31af81,
+  danger:     #ed7476
+);
+
+$GRADIENT_LIGHT: #b4edba;
+$GRADIENT_DARK: #31af81;
+$CARD_COLOR: #ffffff;
+$CARD_HEADER: #31af81;
+$TOPNAV_COLOR: #31af81;
+$BOTTOMNAV_COLOR: #ffffff;
+$TITLE_FONT_COLOR: #ffffff;
+$HIGHLIGHT_COLOR: #31af81;//badges, icons, buttons
 
 
 
+//============================== GENERAL ==================================
+.background {
+   background: $GRADIENT_LIGHT;
+   background: -webkit-linear-gradient($GRADIENT_LIGHT, $GRADIENT_DARK);
+   background: -o-linear-gradient($GRADIENT_LIGHT, $GRADIENT_DARK);
+   background: -moz-linear-gradient($GRADIENT_LIGHT, $GRADIENT_DARK);
+   background: linear-gradient($GRADIENT_LIGHT, $GRADIENT_DARK);
+  }
 
-// App Material Design Variables
-// --------------------------------------------------
-// Material Design only Sass variables can go here
+//top navbar
+.toolbar-background {
+  background: $TOPNAV_COLOR !important;
+}
 
+//bottom navbar
+.tabbar {
+  background: $BOTTOMNAV_COLOR !important;
+  color: $TITLE_FONT_COLOR !important;
+}
 
+//card color
+.card, .card > .item-block {
+  background: $CARD_COLOR !important;
+}
 
+.card-header {
+  background-color: $CARD_HEADER !important;
+  color: $TITLE_FONT_COLOR !important;
+}
 
-// App Windows Variables
-// --------------------------------------------------
-// Windows only Sass variables can go here
+.card-header h2 {
+  color: $TITLE_FONT_COLOR !important;
+}
 
+h1, h2, h3, h4, h5 {
+  font-family: 'Oswald';
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.theme-button {
+  color: $HIGHLIGHT_COLOR !important;
+  border-color: $HIGHLIGHT_COLOR !important;
+  width:90%;
+}
+
+.toolbar-title {
+  font-family: 'Oswald';
+  text-transform: uppercase;
+  font-weight: bold;
+  color: $TITLE_FONT_COLOR !important;
+}
+
+ .theme-font{
+   font-family: 'Oswald';
+   text-transform: uppercase;
+   font-weight: bold;
+}
+
+.navbar-icon {
+  color: $TITLE_FONT_COLOR !important;
+}
+
+.picker-opt-selected, .picker-button, .item-cover {
+  color: $HIGHLIGHT_COLOR !important;
+}
 
 
 
@@ -75,7 +151,6 @@ $colors: (
 // default are overridden.
 
 //@import "ionic.theme.default";
-@import "ionic.theme.dark";
 
 
 // Ionicons
