@@ -32,17 +32,33 @@
         <ion-label fixed>Location</ion-label>
         <ion-input type="text" value=""></ion-input>
     </ion-item>
-    <ion-item>
-        <ion-label>Type of event</ion-label>
-        <ion-select>
-          <ion-option value="beer">Beer</ion-option>
-          <ion-option value="coffee">Coffee</ion-option>
-          <ion-option value="food">Food</ion-option>
-          <ion-option value="sports">Sports</ion-option>
-          <ion-option value="work">Work</ion-option>
-          <ion-option value="learning">Learning</ion-option>
-        </ion-select>
+    <ion-list radio-group>
+      <ion-list-header>Type of event</ion-list-header>
+      <ion-item>
+          <ion-label>Beer</ion-label>
+          <ion-radio value="beer" checked></ion-radio>
       </ion-item>
+      <ion-item>
+          <ion-label>Coffee</ion-label>
+          <ion-radio value="coffee"></ion-radio>
+      </ion-item>
+      <ion-item>
+          <ion-label>Food</ion-label>
+          <ion-radio value="food"></ion-radio>
+      </ion-item>
+      <ion-item>
+          <ion-label>Sports</ion-label>
+          <ion-radio value="sports"></ion-radio>
+      </ion-item>
+      <ion-item>
+          <ion-label>Work</ion-label>
+          <ion-radio value="work"></ion-radio>
+      </ion-item>
+      <ion-item>
+          <ion-label>Learning</ion-label>
+          <ion-radio value="learning"></ion-radio>
+      </ion-item>
+      </ion-list>
     </ion-list>
     <button ion-button round margin class="theme-button">Create Hangout</button>
 </ion-content>
