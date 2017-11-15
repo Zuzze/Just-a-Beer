@@ -37,6 +37,8 @@ $colors: (
   s-light:    #ffe54c,
   light:      #f4f4f4,
   dark:       #222,
+  danger:     #cc4f02,
+  ok:         #ffb300,
   grey:       #707070,
 );
 
@@ -159,6 +161,26 @@ h1, h2, h3, h4, h5 {
   color: $HIGHLIGHT_COLOR !important;
 }
 
+.alert-md [aria-checked=true] .alert-radio-icon {
+  border-color: red !important;
+}
+
+//modal radio button
+.alert-md [aria-checked=true] .alert-radio-icon .alert-radio-inner{
+  background: $HIGHLIGHT_COLOR !important;
+}
+
+.alert-md [aria-checked=true] .alert-radio-icon {
+  border-color: $HIGHLIGHT_COLOR !important;
+}
+
+.alert-md [aria-checked=true] .alert-radio-label {
+  color: $HIGHLIGHT_COLOR !important;
+}
+
+.alert-button-group .alert-button {
+  color: $HIGHLIGHT_COLOR !important;
+}
 
 
 // App Theme
