@@ -26,10 +26,10 @@
     </ion-item>
     <ion-row>
       <ion-col>
-        <button ion-button icon-left clear small color="s-dark">
-          <ion-icon name="people"></ion-icon>
-          <div>{{ data.confirmedUsers.length }}</div>
-        </button>
+        <ion-icon class="people-icon" color="s-dark" name="people"></ion-icon>
+        <ion-chip class="people-chip" *ngFor="let u of data.confirmedUsers" (click)="handleProfileClick(u)" >
+          <ion-label>{{userData[u].name}}</ion-label>
+        </ion-chip>
       </ion-col>
     </ion-row>
     <ion-row>

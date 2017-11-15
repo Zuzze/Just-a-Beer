@@ -29,7 +29,7 @@ export const UserData = {
         age: 32
     },
     3: {
-        id: 2,
+        id: 3,
         name: 'Anna',
         about: 'Not all who wander are lost',
         gender: Genders[0],

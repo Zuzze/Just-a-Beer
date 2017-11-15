@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UserData } from '../../assets/data/UserData';
 import { Comments } from '../../assets/data/HangoutData';
+import { ProfilePage } from '../../pages/profile/profile';
 
 @Component({
   selector: 'hangout',
@@ -72,6 +73,10 @@ export class Hangout {
       document.getElementById("comments").hidden = true;
       document.getElementById("messages").hidden = false;
     }
+  }
+
+  handleProfileClick(u){
+    this.navCtrl.push(ProfilePage, {data: this.userData[u]});
   }
 
 }
