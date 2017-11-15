@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { Hangout } from '../../../pages/hangout/hangout';
+//import { Profile } from '../../../pages/profile/profile';
 import { UserData } from '../../../assets/data/UserData';
 import { ProfilePage } from '../../../pages/profile/profile';
 
@@ -11,6 +12,7 @@ import { ProfilePage } from '../../../pages/profile/profile';
 
 export class HangoutCard {
 @Input('hangout') data: any;
+//@Input('hangout') profileData: any;
 userData = UserData;
 date: String;
 toTime: String;
@@ -38,5 +40,9 @@ fromTime: String;
   handleProfileClick(){
     this.navCtrl.push(ProfilePage, {data: this.userData[this.data.owner]});
   }
+
+  //profileClick(){
+   // this.navCtrl.push(Hangout, {profileData: this.profileData}); 
+  //}
   
 }
