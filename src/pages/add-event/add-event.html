@@ -8,10 +8,41 @@
 
 <ion-content class="background">
   <ion-list>
-    <ion-list-header>Follow us on Twitter</ion-list-header>
     <ion-item>
-      <ion-icon name="ionic" item-start></ion-icon>
-      @ionicframework
+        <ion-label fixed>Title</ion-label>
+        <ion-input type="text" value=""></ion-input>
     </ion-item>
-  </ion-list>
+    <ion-item>
+        <ion-label fixed>Description</ion-label>
+        <ion-input type="text" value=""></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>Date</ion-label>
+        <ion-datetime displayFormat="MMM DD YYYY" pickerFormat="MMM DD YYYY" ></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>Start time</ion-label>
+        <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" ></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>End time</ion-label>
+        <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" ></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label fixed>Location</ion-label>
+        <ion-input type="text" value=""></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Type of event</ion-label>
+        <ion-select>
+          <ion-option value="beer">Beer</ion-option>
+          <ion-option value="coffee">Coffee</ion-option>
+          <ion-option value="food">Food</ion-option>
+          <ion-option value="sports">Sports</ion-option>
+          <ion-option value="work">Work</ion-option>
+          <ion-option value="learning">Learning</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+    <button ion-button round margin class="theme-button">Create Hangout</button>
 </ion-content>

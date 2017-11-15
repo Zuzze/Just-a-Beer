@@ -1,14 +1,24 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { HangoutData } from '../../assets/data/HangoutData';
+import { UserData } from '../../assets/data/UserData';
 
 @Component({
   selector: 'page-meetings',
   templateUrl: 'meetings.html'
 })
 export class MeetingsPage {
-
+  joiningEvents = HangoutData;
+  hostingEvents = HangoutData;
+  userData = UserData;
   constructor(public navCtrl: NavController) {
-
+    const currentUserId = HangoutData[0].id;
+    console.log(currentUserId);
+    console.log(HangoutData);
+    this.joiningEvents = HangoutData;
+    this.hostingEvents = HangoutData.filter(hangout => hangout.owner == currentUserId);
+    console.log(this.joiningEvents);
+    console.log(this.hostingEvents);
   }
 
 //workaround to bug in ion-segment component
@@ -25,5 +35,4 @@ export class MeetingsPage {
       document.getElementById("hosting").hidden = false;
     }
   }
-
 }

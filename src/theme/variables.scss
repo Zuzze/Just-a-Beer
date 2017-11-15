@@ -59,6 +59,8 @@ $colors: (
   s-light:    #b4edba,
   light:      #f4f4f4,
   dark:       #222,
+  ok:         #31af81,
+  danger:     #ed7476
 );
 
 $GRADIENT_LIGHT: #b4edba;
@@ -133,6 +135,10 @@ h1, h2, h3, h4, h5 {
 
 .navbar-icon {
   color: $TITLE_FONT_COLOR !important;
+}
+
+.picker-opt-selected, .picker-button, .item-cover {
+  color: $HIGHLIGHT_COLOR !important;
 }
 
 

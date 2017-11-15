@@ -13,6 +13,7 @@ import { Hangout } from '../pages/hangout/hangout';
 import { HangoutCard } from '../app/components/hangout-card/hangoutCard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { CommentCard } from '../app/components/comment-card/commentCard';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     MeetingsPage,
     TabsPage,
     Hangout,
-    HangoutCard
+    HangoutCard,
+    CommentCard
   ],
   imports: [
     BrowserModule,
