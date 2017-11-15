@@ -11,25 +11,32 @@ import { EventTypes } from '../../assets/data/HangoutData';
 })
 export class AddEventPage {
   title:string;
-  description
-  date: Date;
-  startTime: Date;
-  endTime: Date;
+  description: string;
+  date: String;
+  startTime: String;
+  endTime: String;
   location: string;
   type: string;
   constructor(public navCtrl: NavController) {
-
+    let now = new Date();
+    this.date = now.getDate()+" "+now.getMonth()+" "+now.getFullYear();
+    this.startTime = now.getHours()+" "+now.getMinutes();
+    this.endTime = now.getHours()+" "+now.getMinutes();
   }
 
   handleClick() {
-    console.log(this.date);
+    let typeid = 0;
+    let t = this;
+    EventTypes.forEach(function(el,id,bs) {
+      if(t.type == el) typeid=id;
+    });
     HangoutData.splice(0,0,{
         id: 1,
         fromTime: new Date(this.date+' '+this.startTime),
         toTime: new Date(this.date+' '+this.endTime),
         description: this.description,
         place: this.location,
-        types: [EventTypes[0], EventTypes[1]],
+        types: [EventTypes[typeid]],
         owner: UserData[0].id,
         pendingUsers: [],
         confirmedUsers: [],
