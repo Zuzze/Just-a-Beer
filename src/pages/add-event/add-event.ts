@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { HomePage } from '../home/home';
+
 
 @Component({
   selector: 'page-add-event',
@@ -11,4 +13,7 @@ export class AddEventPage {
 
   }
 
+  handleClick() {
+    this.navCtrl.parent.select(0);
+  }
 }
