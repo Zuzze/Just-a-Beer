@@ -4,6 +4,8 @@ import { UserData, CurrentUser } from '../../assets/data/UserData';
 import { Comments } from '../../assets/data/HangoutData';
 import { ProfilePage } from '../../pages/profile/profile';
 
+const statusTypes = ["Owner", "Pending", "Confirmed", "None"];
+
 @Component({
   selector: 'hangout',
   templateUrl: 'hangout.html',
@@ -21,7 +23,7 @@ export class Hangout {
   commentData = Comments;
   newComment: String = "";
   participants: String;
-  isConfirmed: boolean = false;
+  status: String;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.data = this.navParams.get('data');
@@ -39,8 +41,13 @@ ngOnInit(){
     this.segmentChanged({commentSection: "comments"});
     this.comments = this.getComments(this.commentData, this.data.commentIds);
     this.messages = this.getComments(this.commentData, this.data.privateMessageIds);
-    this.isConfirmed = this.data.confirmedUsers.filter( c => c === CurrentUser).length == 1; 
-    //this.participants = this.data.confirmedUsers.toString(); add names of participants to the card
+    this.status = this.data.owner === CurrentUser 
+                    ? statusTypes[0]
+                    : this.data.confirmedUsers.filter( c => c === CurrentUser).length == 1
+                    ? statusTypes[1] 
+                    : this.data.pendingUsers.filter( c => c === CurrentUser).length == 1
+                    ? statusTypes[2]
+                    : statusTypes[3];     
   }
 
   getComments(commentData, commentIds){
@@ -79,6 +86,12 @@ ngOnInit(){
 
   handleProfileClick(u){
     this.navCtrl.push(ProfilePage, {data: this.userData[u]});
+  }
+
+  handleStateChange(prevStatus){
+    this.status = prevStatus == "None" 
+                    ? "Pending"
+                    : "None"; 
   }
 
 }

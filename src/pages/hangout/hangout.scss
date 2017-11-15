@@ -33,3 +33,30 @@
     padding: 20px;
     text-align: center;
 }
+
+.request-button {
+    color: color($colors, light, base) !important;
+    background: color($colors, secondary, base) !important;
+    border-color: color($colors, light, base) !important;
+    width:90%;
+  }
+
+  .pending-button {
+    color: white !important;
+    background: gray !important;
+    border-color: white !important;
+    width:90%;
+  }
+
+  .cancel-button {
+    color: white !important;
+    background: #FF5252 !important;
+    border-color: white !important;
+    width:90%;
+  }
+
+  .edit-button {
+    color: color($colors, secondary, base) !important;
+    border-color: color($colors, secondary, base) !important;
+    width:90%;
+  }

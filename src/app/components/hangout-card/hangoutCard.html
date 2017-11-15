@@ -10,12 +10,21 @@
     <p> {{ data.description }}</p>
   </ion-item>
   <ion-item>
-    <ion-icon item-start name="beer" color="s-dark"></ion-icon>
+    <ion-icon item-start name="clock" color="s-dark"></ion-icon>
     <h3> {{ date + " @ " + fromTime + " - " + toTime }} </h3>
   </ion-item>
   <ion-item>
     <ion-icon name="pin" item-start color="s-dark"></ion-icon><h3> {{ data.place }} </h3>
   </ion-item>
+  
+  <ion-row>
+    <ion-col>
+      <ion-icon class="people-icon" color="s-dark" name="beer"></ion-icon>
+      <ion-chip class="people-chip">
+        <ion-label>{{data.type}}</ion-label>
+      </ion-chip>
+      </ion-col>
+    </ion-row>
   <ion-row>
     <ion-col>
       <button ion-button icon-left clear small color="secondary">

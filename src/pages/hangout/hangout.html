@@ -33,7 +33,20 @@
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col><button ion-button round outline margin class="theme-button">Request to join</button></ion-col>
+      <ion-col>
+        <ion-icon class="people-icon" color="s-dark" name="beer"></ion-icon>
+        <ion-chip class="people-chip">
+          <ion-label>{{data.type}}</ion-label>
+        </ion-chip>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button (click)="handleStateChange(status)" *ngIf="status == 'None'" ion-button round outline margin class="request-button">Request to join</button>
+        <button *ngIf="status == 'Pending'" ion-button round outline margin class="pending-button">Pending request</button>
+        <button (click)="handleStateChange(status)" *ngIf="status == 'Confirmed'" ion-button round outline margin class="cancel-button">You're going - Cancel</button>
+        <button *ngIf="status == 'Owner'" ion-button round outline margin class="edit-button">Edit<ion-icon name="create" color="s-dark"></ion-icon></button>
+      </ion-col>
     </ion-row>
   </ion-card>
 
@@ -58,7 +71,7 @@
   </div>
 
   <div id="messages" [ngSwitch]="commentSection">
-        <div *ngIf="isConfirmed">
+        <div *ngIf="status == 'Confirmed' || status == 'Owner'">
           <ion-list>
             <comment-card *ngFor="let comment of messages" [content]="comment" [user]="userData[comment.author]"></comment-card>
           </ion-list>
@@ -67,7 +80,7 @@
             <button class="add-input-button" (click)="addComment()" clear item-right><ion-icon class="icon" color="s-dark" name="send"></ion-icon></button>
           </ion-item>
         </div>
-        <div *ngIf="!isConfirmed">
+        <div *ngIf="status != 'Confirmed' && status != 'Owner'">
             <ion-card class="restricted-message"><ion-icon color="s-dark" name="lock"> </ion-icon><p>You will be able to access this section when you are accepted to the hangout.</p></ion-card>
         </div>
       </div>

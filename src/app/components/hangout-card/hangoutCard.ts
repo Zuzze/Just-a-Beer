@@ -7,12 +7,12 @@ import { ProfilePage } from '../../../pages/profile/profile';
 
 @Component({
   selector: 'hangout-card',
-  templateUrl: 'hangoutCard.html'
+  templateUrl: 'hangoutCard.html',
+  styles: ['hangoutCard.scss']
 })
 
 export class HangoutCard {
 @Input('hangout') data: any;
-//@Input('hangout') profileData: any;
 userData = UserData;
 date: String;
 toTime: String;
@@ -40,9 +40,5 @@ fromTime: String;
   handleProfileClick(){
     this.navCtrl.push(ProfilePage, {data: this.userData[this.data.owner]});
   }
-
-  //profileClick(){
-   // this.navCtrl.push(Hangout, {profileData: this.profileData}); 
-  //}
   
 }

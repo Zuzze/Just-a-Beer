@@ -35,7 +35,7 @@ export class AddEventPage {
         toTime: new Date(this.date+' '+this.endTime),
         description: this.description,
         place: this.location,
-        types: [EventTypes[typeid]],
+        type: EventTypes[typeid],
         owner: UserData[0].id,
         pendingUsers: [],
         confirmedUsers: [],
