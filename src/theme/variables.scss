@@ -262,16 +262,14 @@ h1, h2, h3, h4, h5 {
 }
 
 //segments aka sub tabs
-.theme-segment {
-  background: $NAV_INACTIVE_ICON;
+.theme-segments {
+  font-family: 'Oswald' !important;
+  color: $TITLE_FONT_COLOR;
+  background: $NAV_INACTIVE_ICON !important;
 }
 
-.theme-segment .item-cover[aria-checked=true] {
-  background: $BOTTOMNAV_COLOR;
-}
-
-.theme-segment .radio-icon {
-  visibility: hidden;
+.theme-segment-activated{
+  background: $HIGHLIGHT_COLOR !important;
 }
 
 //radio modal (type of event in create event)

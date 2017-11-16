@@ -73,12 +73,12 @@ ngOnInit(){
   segmentChanged(segment) {
     console.log(segment);
     if(segment == "messages"){
-      document.getElementById("comments").hidden = false;
-      document.getElementById("messages").hidden = true;
-    } else {
-      //also default
       document.getElementById("comments").hidden = true;
       document.getElementById("messages").hidden = false;
+    } else {
+      //also default
+      document.getElementById("comments").hidden = false;
+      document.getElementById("messages").hidden = true;
     }
   }
 

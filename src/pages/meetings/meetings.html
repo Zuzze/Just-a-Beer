@@ -4,19 +4,16 @@
       My Hangouts
     </ion-title>
   </ion-navbar>
-</ion-header>
 
-<!-- Tabs -->
-<ion-content padding class="background">
-  <ion-row class="theme-segment">
-    <ion-col col-6 text-center class="theme-segment-activated">
-      <a type="radio" (click) = "segmentChanged('joining')">JOINING</a>
-    </ion-col>
-    <ion-col col-6 text-center>
-      <a type="radio" (click) = "segmentChanged('hosting')">HOSTING</a>
-    </ion-col>
+  <ion-row class="theme-segment-static theme-segments">
+    <ion-col text-center id="joiningTab" name="joining" class="theme-segment-activated" (click) = "segmentChanged('joining')"><span>JOINING</span></ion-col>
+    <ion-col text-center id="hostingTab"  name="hosting" (click) = "segmentChanged('hosting')"><span>HOSTING</span></ion-col>
   </ion-row>
 
+</ion-header>
+
+<!-- Tabs content -->
+<ion-content padding class="background">
   <div id="joining" class="joining_content" ng-show="activeButton === 'JOINING'">
     <hangout-card *ngFor="let j of joiningEvents" [hangout]="j"></hangout-card>
   </div>

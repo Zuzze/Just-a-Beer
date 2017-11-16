@@ -51,22 +51,10 @@
   </ion-card>
 
   <div style="margin:10px;">
-    <ion-list radio-group>
-      <ion-row>
-        <ion-col col-6 class="theme-segment">
-          <ion-item style="background:transparent">
-            <ion-label>COMMENTS</ion-label>
-            <ion-radio value="comments" checked (click)="segmentChanged('comments')"></ion-radio>
-          </ion-item>
-        </ion-col>
-        <ion-col col-6 class="theme-segment">
-          <ion-item style="background:transparent">
-            <ion-label>MESSAGES</ion-label>
-            <ion-radio value="messages" (click)="segmentChanged('messages')"></ion-radio>
-          </ion-item>
-        </ion-col>
-      </ion-row>
-    </ion-list>
+    <ion-row class="theme-segments">
+      <ion-col text-center id="commentsTab" value="comments" class="theme-segment-activated" (click) = "segmentChanged('comments')"><span>COMMENTS</span></ion-col>
+      <ion-col text-center id="messagesTab"  value="messages" (click) = "segmentChanged('messages')"><span>MESSAGES</span></ion-col>
+    </ion-row>
 
   <div id="comments" [ngSwitch]="commentSection">
     <ion-list>
