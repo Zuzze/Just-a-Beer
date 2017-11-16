@@ -42,9 +42,9 @@
     </ion-row>
     <ion-row>
       <ion-col>
-        <button ion-button (click)="handleStateChange(status)" *ngIf="status == 'None'" ion-button round outline margin class="theme-button">REQUEST TO JOIN</button>
-        <button ion-button *ngIf="status == 'Pending'" ion-button round outline margin class="theme-button">PENDING REQUEST</button>
-        <button ion-button (click)="handleStateChange(status)" *ngIf="status == 'Confirmed'" ion-button round outline margin class="theme-button">YOU'RE GOING - CANCEL</button>
+        <button ion-button (click)="handleStateChange(status)" *ngIf="status == 'None'" ion-button round outline margin class="request-button">REQUEST TO JOIN</button>
+        <button ion-button *ngIf="status == 'Pending'" ion-button round outline margin class="pending-button">PENDING REQUEST</button>
+        <button ion-button (click)="handleStateChange(status)" *ngIf="status == 'Confirmed'" ion-button round outline margin class="cancel-button">YOU'RE GOING - CANCEL</button>
         <button ion-button icon-left *ngIf="status == 'Owner'" ion-button round outline margin class="theme-button"><ion-icon name="create" padding-right></ion-icon>EDIT</button>
       </ion-col>
     </ion-row>
@@ -52,8 +52,8 @@
 
   <div style="margin:10px;">
     <ion-row class="theme-segments">
-      <ion-col text-center id="commentsTab" value="comments" class="theme-segment-activated" (click) = "segmentChanged('comments')"><span>COMMENTS</span></ion-col>
-      <ion-col text-center id="messagesTab"  value="messages" (click) = "segmentChanged('messages')"><span>MESSAGES</span></ion-col>
+      <ion-col text-center id="commentsTab" value="comments" [ngClass]="(tab == 'comments') ? 'theme-segment-active' : 'theme-segment-inactive'" (click) = "segmentChanged('comments')"><span>COMMENTS</span></ion-col>
+      <ion-col text-center id="messagesTab"  value="messages" [ngClass]="(tab == 'messages') ? 'theme-segment-active' : 'theme-segment-inactive'" (click) = "segmentChanged('messages')"><span>MESSAGES</span></ion-col>
     </ion-row>
 
   <div id="comments" [ngSwitch]="commentSection">

@@ -13,7 +13,7 @@ export class MeetingsPage {
   joiningEvents = HangoutData;
   hostingEvents = HangoutData;
   userData = UserData;
-
+  tab = 'joining'; 
   constructor(public navCtrl: NavController) {
 
   }
@@ -49,9 +49,11 @@ export class MeetingsPage {
 //workaround to bug in ion-segment component
   segmentChanged(segment) {
     if(segment == "hosting"){
+      this.tab = 'hosting';
       document.getElementById("joining").hidden = true;
       document.getElementById("hosting").hidden = false;
     } else {
+      this.tab = 'joining';
       document.getElementById("joining").hidden = false;
       document.getElementById("hosting").hidden = true;
     }

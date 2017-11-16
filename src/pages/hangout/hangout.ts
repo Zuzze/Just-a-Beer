@@ -14,6 +14,7 @@ const statusTypes = ["Owner", "Pending", "Confirmed", "None"];
 
 export class Hangout {
   data: any;
+  tab = 'comments';
   userData = UserData;
   toTime: String;
   fromTime: String;
@@ -73,10 +74,12 @@ ngOnInit(){
   segmentChanged(segment) {
     console.log(segment);
     if(segment == "messages"){
+      this.tab = "messages";
       document.getElementById("comments").hidden = true;
       document.getElementById("messages").hidden = false;
     } else {
       //also default
+      this.tab = 'comments';
       document.getElementById("comments").hidden = false;
       document.getElementById("messages").hidden = true;
     }

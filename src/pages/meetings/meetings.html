@@ -6,8 +6,8 @@
   </ion-navbar>
 
   <ion-row class="theme-segment-static theme-segments">
-    <ion-col text-center id="joiningTab" name="joining" class="theme-segment-activated" (click) = "segmentChanged('joining')"><span>JOINING</span></ion-col>
-    <ion-col text-center id="hostingTab"  name="hosting" (click) = "segmentChanged('hosting')"><span>HOSTING</span></ion-col>
+    <ion-col text-center id="joiningTab" name="joining" [ngClass]="(tab == 'joining') ? 'theme-segment-active' : 'theme-segment-inactive'" (click)="segmentChanged('joining')"><span>JOINING</span></ion-col>
+    <ion-col text-center id="hostingTab"  name="hosting" [ngClass]="(tab == 'hosting') ? 'theme-segment-active' : 'theme-segment-inactive'" (click)="segmentChanged('hosting')"><span>HOSTING</span></ion-col>
   </ion-row>
 
 </ion-header>

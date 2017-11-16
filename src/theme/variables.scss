@@ -268,8 +268,12 @@ h1, h2, h3, h4, h5 {
   background: $NAV_INACTIVE_ICON !important;
 }
 
-.theme-segment-activated{
+.theme-segment-active{
   background: $HIGHLIGHT_COLOR !important;
+}
+
+.theme-segment-inactive{
+  background: $CARD_HEADER !important;
 }
 
 //radio modal (type of event in create event)
