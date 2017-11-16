@@ -274,6 +274,19 @@ h1, h2, h3, h4, h5 {
   visibility: hidden;
 }
 
+//radio modal (type of event in create event)
+.alert-button-group, .alert-radio-button {
+  background: $CARD_COLOR !important;
+}
+
+.alert-radio-button .alert-radio-label {
+  color: $FONT_COLOR !important;
+}
+
+.alert-head {
+  background: $CARD_HEADER !important;
+  color: $TITLE_FONT_COLOR !important;
+}
 
 // App Theme
 // --------------------------------------------------

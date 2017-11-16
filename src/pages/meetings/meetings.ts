@@ -15,6 +15,7 @@ export class MeetingsPage {
   userData = UserData;
 
   constructor(public navCtrl: NavController) {
+
   }
 
   ngOnInit(){
@@ -47,16 +48,12 @@ export class MeetingsPage {
 
 //workaround to bug in ion-segment component
   segmentChanged(segment) {
-    let tab = "joining"
-    if(segment.hangouts){
-      tab = segment.hangouts;//default page
-    }
-    if(tab == "joining"){
-      document.getElementById("joining").hidden = false;
-      document.getElementById("hosting").hidden = true;
-    } else {
+    if(segment == "hosting"){
       document.getElementById("joining").hidden = true;
       document.getElementById("hosting").hidden = false;
+    } else {
+      document.getElementById("joining").hidden = false;
+      document.getElementById("hosting").hidden = true;
     }
   }
 }

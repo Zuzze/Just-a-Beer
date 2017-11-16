@@ -8,25 +8,19 @@
 
 <!-- Tabs -->
 <ion-content padding class="background">
-  <ion-segment [(ngModel)]="hangouts" (ionChange)="segmentChanged(this)" color="s-dark">
-    <ion-segment-button value="joining">
-      Joining
-    </ion-segment-button>
-    <ion-segment-button value="hosting">
-      Hosting
-    </ion-segment-button>
-  </ion-segment>
+  <ion-row class="theme-segment">
+    <ion-col col-6 text-center class="theme-segment-activated">
+      <a type="radio" (click) = "segmentChanged('joining')">JOINING</a>
+    </ion-col>
+    <ion-col col-6 text-center>
+      <a type="radio" (click) = "segmentChanged('hosting')">HOSTING</a>
+    </ion-col>
+  </ion-row>
 
-<!-- first tab content -->
-  <div id="joining" [ngSwitch]="hangouts">
-    <ion-list>
-      <hangout-card *ngFor="let j of joiningEvents" [hangout]="j"></hangout-card>
-    </ion-list>
+  <div id="joining" class="joining_content" ng-show="activeButton === 'JOINING'">
+    <hangout-card *ngFor="let j of joiningEvents" [hangout]="j"></hangout-card>
   </div>
-<!-- second tab content -->
-  <div id="hosting" hidden [ngSwitch]="hangouts">
-    <ion-list *ngSwitchCase="'hosting'">
+  <div id="hosting" class="hosting_content" ng-show="activeButton === 'HOSTING'">
       <hangout-card *ngFor="let h of hostingEvents" [hangout]="h"></hangout-card>
-    </ion-list>
   </div>
 </ion-content>
