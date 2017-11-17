@@ -4,7 +4,7 @@ import { UserData, CurrentUser } from '../../assets/data/UserData';
 import { Comments } from '../../assets/data/HangoutData';
 import { ProfilePage } from '../../pages/profile/profile';
 
-const statusTypes = ["Owner", "Pending", "Confirmed", "None"];
+const statusTypes = ["Owner", "Confirmed", "Pending", "None"];
 
 @Component({
   selector: 'hangout',
