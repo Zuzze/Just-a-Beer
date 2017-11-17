@@ -639,10 +639,9 @@ var HangoutCard = (function () {
             selector: 'hangout-card',template:/*ion-inline-start:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/app/components/hangout-card/hangoutCard.html"*/`<ion-card>\n    <ion-row>\n      <ion-item (click)="handleProfileClick()" class="card-header">\n        <h2>{{data.type}}{{" @ " + fromTime + " - " + toTime + ", " + data.place}}</h2>\n      </ion-item>\n    </ion-row>\n  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2034.799529004293!2d18.07053785122437!3d59.336300717416215!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f9d5c98f9f455%3A0xcde99cb6f49a75b9!2sStureplan+1!5e0!3m2!1sen!2sse!4v1510312489877" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen></iframe>\n    <ion-item text-wrap>\n      <h3>{{ userData[data.owner].name }}</h3>\n      <p> {{ data.description }}</p>\n  </ion-item>\n  <ion-row>\n    <ion-col text-center>\n      <button ion-button icon-left clear small color="secondary">\n        <ion-icon name="people"></ion-icon>\n        <div>{{ data.confirmedUsers.length }}</div>\n      </button>\n    </ion-col>\n    <ion-col text-center>\n      <button ion-button icon-left clear small color="secondary">\n        <ion-icon name="text"></ion-icon>\n        <div>{{ data.commentIds.length }}</div>\n      </button>\n    </ion-col>\n  </ion-row>\n  <ion-row>\n    <ion-col text-center><button class="title-font theme-button" ion-button outline round margin-bottom (click)="handleClick()">SEE MORE</button></ion-col>\n  </ion-row>\n</ion-card>\n`/*ion-inline-end:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/app/components/hangout-card/hangoutCard.html"*/,
             styles: ['hangoutCard.scss']
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
     ], HangoutCard);
     return HangoutCard;
-    var _a;
 }());
 
 //# sourceMappingURL=hangoutCard.js.map
