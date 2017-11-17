@@ -14,10 +14,7 @@ font-style: normal;
 // rtl styles in your app. For more info, please see:
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
-
-
 @import "ionic.globals";
-
 
 // Shared Variables
 // --------------------------------------------------
@@ -29,7 +26,6 @@ $app-direction: ltr;
 
 //------- YELLOW THEME ----------
 //Black and Yellow theme
-/*
 $colors: (
   primary:    #f4f4f4,
   secondary:  #ffb300,
@@ -47,13 +43,14 @@ $GRADIENT_LIGHT: #ffe54c;
 $GRADIENT_DARK: #c68400;
 $CARD_COLOR: #ffffff;
 $CARD_HEADER: #222;
-$TOPNAV_COLOR: #222;//topnav
-$BOTTOMNAV_COLOR: #222;
+$TOPNAV_COLOR: black;
+$BOTTOMNAV_COLOR: black;
 $TITLE_FONT_COLOR: #ffffff;
 $FONT_COLOR: black;
 $HIGHLIGHT_COLOR: #ffb300;//badges, icons, buttons
-$NAV_INACTIVE_ICON: #ffe54c;
-*/
+$NAV_INACTIVE_ICON: #222;
+$THEME_BUTTON: #222;
+$BUTTON_FONT: white;
 
 //------- GREEN THEME ----------
 /*$colors: (
@@ -77,6 +74,8 @@ $TITLE_FONT_COLOR: #ffffff;
 $FONT_COLOR: #222;
 $HIGHLIGHT_COLOR: #31af81;//badges, icons, buttons
 $NAV_INACTIVE_ICON: #b4edba;
+$THEME_BUTTON: #222;
+$BUTTON_FONT: white;
 */
 
 //------- PURPLE LIGHT THEME ----------
@@ -101,9 +100,11 @@ $TITLE_FONT_COLOR: #000051;
 $FONT_COLOR: #000051;
 $HIGHLIGHT_COLOR: #f956f6;//badges, icons, buttons
 $NAV_INACTIVE_ICON: #534bae;
+$THEME_BUTTON: #222;
+$BUTTON_FONT: white;
 */
 //------- PURPLE DARK THEME ----------
-$colors: (
+/*$colors: (
   primary:    #f4f4f4,
   secondary:  #f4f4f4,
   s-dark:     #9b3699,
@@ -124,172 +125,9 @@ $TITLE_FONT_COLOR: white;
 $FONT_COLOR: white;
 $HIGHLIGHT_COLOR: #f956f6;//badges, icons, buttons
 $NAV_INACTIVE_ICON: #222;
-
-
-//============================== GENERAL ==================================
-.background {
-   background: $GRADIENT_LIGHT;
-   background: -webkit-linear-gradient($GRADIENT_LIGHT, $GRADIENT_DARK);
-   background: -o-linear-gradient($GRADIENT_LIGHT, $GRADIENT_DARK);
-   background: -moz-linear-gradient($GRADIENT_LIGHT, $GRADIENT_DARK);
-   background: linear-gradient($GRADIENT_LIGHT, $GRADIENT_DARK);
-  }
-
-//top navbar
-.toolbar-background {
-  background: $TOPNAV_COLOR !important;
-}
-
-//bottom navbar
-.tabbar {
-  background: $BOTTOMNAV_COLOR !important;
-  color: $TITLE_FONT_COLOR !important;
-}
-
-//active color in tabbar
-.tabs-md .tab-button[aria-selected=true] .tab-button-icon {
-  color: $HIGHLIGHT_COLOR !important;
-}
-
-//inactive icons in tab background
-.tab-button-icon[ng-reflect-is-active=false] {
-  color:  $NAV_INACTIVE_ICON !important;
-}
-
-//radio buttons
-.radio-checked {
-  border-color: $HIGHLIGHT_COLOR !important;
-}
-
-.radio-checked .radio-inner {
-  background: $HIGHLIGHT_COLOR !important;
-}
-
-.item-radio-checked > div > div > .label{
-  color: $HIGHLIGHT_COLOR;
-}
-
-//card color
-.card, .card > .item-block {
-  background: $CARD_COLOR !important;
-}
-
-.card-bg {
-  background-color: $CARD_COLOR !important;
-  color: $FONT_COLOR !important;
-}
-
-.card-text {
-  color: $FONT_COLOR !important;
-}
-
-.card-header {
-  background-color: $CARD_HEADER !important;
-  color: $TITLE_FONT_COLOR !important;
-}
-
-.card-header h2 {
-  color: $TITLE_FONT_COLOR !important;
-}
-
-h1, h2, h3, h4, h5 {
-  font-family: 'Oswald';
-  text-transform: uppercase;
-  font-weight: bold;
-  //color: $TITLE_FONT_COLOR !important; //comment out if CARD_COLOR is light
-}
-
-.theme-button {
-  color: $FONT_COLOR !important;
-  border-color: transparent !important; //check
-  background: $BOTTOMNAV_COLOR !important;
-  width:90%;
-}
-
-.toolbar-title {
-  font-family: 'Oswald';
-  text-transform: uppercase;
-  font-weight: bold;
-  color: $TITLE_FONT_COLOR !important;
-}
-
-.ion-item > h1,h2,h3,h4,h5,p {
-  color: $FONT_COLOR !important
-}
-
- .theme-font{
-   font-family: 'Oswald';
-   text-transform: uppercase;
-   font-weight: bold;
-}
-
-.navbar-icon {
-  color: $TITLE_FONT_COLOR !important;
-}
-
-.picker-wrapper, .picker-toolbar, .picker-opt {
-  background: $CARD_COLOR !important;
-  color: $FONT_COLOR !important;
-}
-
-.picker-opt-selected, .picker-button, .item-cover {
-  color: $HIGHLIGHT_COLOR !important;
-}
-
-//modal radio button
-.alert-md [aria-checked=true] .alert-radio-icon .alert-radio-inner{
-  background: $HIGHLIGHT_COLOR !important;
-}
-
-.alert-md [aria-checked=true] .alert-radio-icon {
-  border-color: $HIGHLIGHT_COLOR !important;
-}
-
-.alert-md [aria-checked=true] .alert-radio-label {
-  color: $HIGHLIGHT_COLOR !important;
-}
-
-.alert-button-group .alert-button {
-  color: $HIGHLIGHT_COLOR !important;
-}
-
-.back-button {
-  color: $TITLE_FONT_COLOR !important;
-}
-
-.add-input-button {
-  background: transparent !important;
-}
-
-//segments aka sub tabs
-.theme-segments {
-  font-family: 'Oswald' !important;
-  color: $TITLE_FONT_COLOR;
-  background: $NAV_INACTIVE_ICON !important;
-}
-
-.theme-segment-active{
-  background: $HIGHLIGHT_COLOR !important;
-}
-
-.theme-segment-inactive{
-  background: $CARD_HEADER !important;
-}
-
-//radio modal (type of event in create event)
-.alert-button-group, .alert-radio-button {
-  background: $CARD_COLOR !important;
-}
-
-.alert-radio-button .alert-radio-label {
-  color: $FONT_COLOR !important;
-}
-
-.alert-head {
-  background: $CARD_HEADER !important;
-  color: $TITLE_FONT_COLOR !important;
-}
-
+$THEME_BUTTON: #222;
+$BUTTON_FONT: white;
+*/
 // App Theme
 // --------------------------------------------------
 // Ionic apps can have different themes applied, which can

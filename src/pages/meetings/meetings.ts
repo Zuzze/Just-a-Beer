@@ -12,8 +12,10 @@ import { UserData } from '../../assets/data/UserData';
 export class MeetingsPage {
   joiningEvents = HangoutData;
   hostingEvents = HangoutData;
+  pendingEvents = HangoutData;
   userData = UserData;
-  tab = 'joining'; 
+  tab = 'joining';
+
   constructor(public navCtrl: NavController) {
 
   }
@@ -23,6 +25,7 @@ export class MeetingsPage {
     const currentUserId = 0;
     this.hostingEvents = this.getHostingEvents(hangoutData, currentUserId);
     this.joiningEvents = this.getJoiningEvents(hangoutData, currentUserId);
+    this.pendingEvents = this.getPendingEvents(hangoutData, currentUserId);
 
   }
 
@@ -39,11 +42,21 @@ export class MeetingsPage {
   getJoiningEvents(hangouts, userId){
     let joining = [];
     if (hangouts.length > 0){
-      joining = hangouts.filter(hangout => hangout.pendingUsers.includes(userId) || hangout.confirmedUsers.includes(userId));
+      joining = hangouts.filter(hangout => hangout.confirmedUsers.includes(userId));
     }
     console.log("JOINING");
     console.log(joining);
     return joining;
+  }
+
+  getPendingEvents(hangouts, userId){
+    let pending = [];
+    if (hangouts.length > 0){
+      pending = hangouts.filter(hangout => hangout.pendingUsers.includes(userId));
+    }
+    console.log("PENDING");
+    console.log(pending);
+    return pending;
   }
 
 //workaround to bug in ion-segment component
@@ -51,10 +64,17 @@ export class MeetingsPage {
     if(segment == "hosting"){
       this.tab = 'hosting';
       document.getElementById("joining").hidden = true;
+      document.getElementById("pending").hidden = true;
       document.getElementById("hosting").hidden = false;
+    } else if(segment == "pending") {
+      this.tab = 'pending';
+      document.getElementById("joining").hidden = true;
+      document.getElementById("pending").hidden = false;
+      document.getElementById("hosting").hidden = true;
     } else {
       this.tab = 'joining';
       document.getElementById("joining").hidden = false;
+      document.getElementById("pending").hidden = true;
       document.getElementById("hosting").hidden = true;
     }
   }
