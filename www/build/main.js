@@ -107,6 +107,7 @@ var MeetingsPage = (function () {
         this.navCtrl = navCtrl;
         this.joiningEvents = __WEBPACK_IMPORTED_MODULE_2__assets_data_HangoutData__["c" /* HangoutData */];
         this.hostingEvents = __WEBPACK_IMPORTED_MODULE_2__assets_data_HangoutData__["c" /* HangoutData */];
+        this.pendingEvents = __WEBPACK_IMPORTED_MODULE_2__assets_data_HangoutData__["c" /* HangoutData */];
         this.userData = __WEBPACK_IMPORTED_MODULE_3__assets_data_UserData__["b" /* UserData */];
         this.tab = 'joining';
     }

@@ -12,6 +12,7 @@ import { UserData } from '../../assets/data/UserData';
 export class MeetingsPage {
   joiningEvents = HangoutData;
   hostingEvents = HangoutData;
+  pendingEvents = HangoutData;
   userData = UserData;
   tab = 'joining';
 
