@@ -17,6 +17,7 @@ userData = UserData;
 date: String;
 toTime: String;
 fromTime: String;
+typeIcon: String;
 
   constructor(public navCtrl: NavController) {
   }
@@ -40,5 +41,5 @@ fromTime: String;
   handleProfileClick(){
     this.navCtrl.push(ProfilePage, {data: this.userData[this.data.owner]});
   }
-  
+
 }
