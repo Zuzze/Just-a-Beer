@@ -50,8 +50,8 @@
 
   .cancel-button {
     color: white !important;
-    background: #FF5252 !important;
-    border: none;   
+    background: color($colors, danger, base) !important;
+    border: none;
     width:90%;
   }
 

@@ -108,12 +108,14 @@ var MeetingsPage = (function () {
         this.joiningEvents = __WEBPACK_IMPORTED_MODULE_2__assets_data_HangoutData__["c" /* HangoutData */];
         this.hostingEvents = __WEBPACK_IMPORTED_MODULE_2__assets_data_HangoutData__["c" /* HangoutData */];
         this.userData = __WEBPACK_IMPORTED_MODULE_3__assets_data_UserData__["b" /* UserData */];
+        this.tab = 'joining';
     }
     MeetingsPage.prototype.ngOnInit = function () {
         var hangoutData = __WEBPACK_IMPORTED_MODULE_2__assets_data_HangoutData__["c" /* HangoutData */];
         var currentUserId = 0;
         this.hostingEvents = this.getHostingEvents(hangoutData, currentUserId);
         this.joiningEvents = this.getJoiningEvents(hangoutData, currentUserId);
+        this.pendingEvents = this.getPendingEvents(hangoutData, currentUserId);
     };
     MeetingsPage.prototype.getHostingEvents = function (hangouts, userId) {
         var hosted = [];
@@ -127,30 +129,45 @@ var MeetingsPage = (function () {
     MeetingsPage.prototype.getJoiningEvents = function (hangouts, userId) {
         var joining = [];
         if (hangouts.length > 0) {
-            joining = hangouts.filter(function (hangout) { return hangout.pendingUsers.includes(userId) || hangout.confirmedUsers.includes(userId); });
+            joining = hangouts.filter(function (hangout) { return hangout.confirmedUsers.includes(userId); });
         }
         console.log("JOINING");
         console.log(joining);
         return joining;
     };
+    MeetingsPage.prototype.getPendingEvents = function (hangouts, userId) {
+        var pending = [];
+        if (hangouts.length > 0) {
+            pending = hangouts.filter(function (hangout) { return hangout.pendingUsers.includes(userId); });
+        }
+        console.log("PENDING");
+        console.log(pending);
+        return pending;
+    };
     //workaround to bug in ion-segment component
-    MeetingsPage.prototype.segmentChanged = function (event) {
-        console.log(event.target);
-        console.log(event.target.classlist);
-        if (event.target == "HOSTING") {
+    MeetingsPage.prototype.segmentChanged = function (segment) {
+        if (segment == "hosting") {
+            this.tab = 'hosting';
             document.getElementById("joining").hidden = true;
+            document.getElementById("pending").hidden = true;
             document.getElementById("hosting").hidden = false;
-            event.target.classlist.add("theme-segment-activated");
+        }
+        else if (segment == "pending") {
+            this.tab = 'pending';
+            document.getElementById("joining").hidden = true;
+            document.getElementById("pending").hidden = false;
+            document.getElementById("hosting").hidden = true;
         }
         else {
+            this.tab = 'joining';
             document.getElementById("joining").hidden = false;
+            document.getElementById("pending").hidden = true;
             document.getElementById("hosting").hidden = true;
-            event.target.classlist.add("theme-segment-activated");
         }
     };
     MeetingsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-meetings',template:/*ion-inline-start:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/pages/meetings/meetings.html"*/`<ion-header>\n  <ion-navbar>\n    <ion-title align="center">\n      My Hangouts\n    </ion-title>\n  </ion-navbar>\n\n  <ion-row class="theme-segment-static theme-segments">\n    <ion-col text-center id="joiningTab" name="joining" class="theme-segment-activated" (click) = "segmentChanged($event)">JOINING</ion-col>\n    <ion-col text-center id="hostingTab"  name="hosting" (click) = "segmentChanged($event)">HOSTING</ion-col>\n  </ion-row>\n\n</ion-header>\n\n<!-- Tabs content -->\n<ion-content padding class="background">\n  <div id="joining" class="joining_content" ng-show="activeButton === \'JOINING\'">\n    <hangout-card *ngFor="let j of joiningEvents" [hangout]="j"></hangout-card>\n  </div>\n  <div id="hosting" class="hosting_content" ng-show="activeButton === \'HOSTING\'">\n      <hangout-card *ngFor="let h of hostingEvents" [hangout]="h"></hangout-card>\n  </div>\n</ion-content>\n`/*ion-inline-end:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/pages/meetings/meetings.html"*/
+            selector: 'page-meetings',template:/*ion-inline-start:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/pages/meetings/meetings.html"*/`<ion-header>\n  <ion-navbar>\n    <ion-title align="center">\n      My Hangouts\n    </ion-title>\n  </ion-navbar>\n\n  <ion-row class="theme-segment-static theme-segments">\n    <ion-col text-center id="joiningTab" name="joining" [ngClass]="(tab == \'joining\') ? \'theme-segment-active\' : \'theme-segment-inactive\'" (click)="segmentChanged(\'joining\')"><span>JOINING</span></ion-col>\n    <ion-col text-center id="pendingTab"  name="pending" [ngClass]="(tab == \'pending\') ? \'theme-segment-active\' : \'theme-segment-inactive\'" (click)="segmentChanged(\'pending\')"><span>PENDING</span></ion-col>\n    <ion-col text-center id="hostingTab"  name="hosting" [ngClass]="(tab == \'hosting\') ? \'theme-segment-active\' : \'theme-segment-inactive\'" (click)="segmentChanged(\'hosting\')"><span>HOSTING</span></ion-col>\n  </ion-row>\n\n</ion-header>\n\n<!-- Tabs content -->\n<ion-content padding class="background">\n  <div id="joining" class="joining_content" ng-show="activeButton === \'JOINING\'">\n    <hangout-card *ngFor="let j of joiningEvents" [hangout]="j"></hangout-card>\n  </div>\n  <div id="pending" class="pending_content" ng-show="activeButton === \'PENDING\'">\n    <hangout-card *ngFor="let p of pendingEvents" [hangout]="p"></hangout-card>\n  </div>\n  <div id="hosting" class="hosting_content" ng-show="activeButton === \'HOSTING\'">\n      <hangout-card *ngFor="let h of hostingEvents" [hangout]="h"></hangout-card>\n  </div>\n</ion-content>\n`/*ion-inline-end:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/pages/meetings/meetings.html"*/
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]) === "function" && _a || Object])
     ], MeetingsPage);
@@ -294,7 +311,7 @@ var AddEventPage = (function () {
     };
     AddEventPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-add-event',template:/*ion-inline-start:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/pages/add-event/add-event.html"*/`<ion-header>\n  <ion-navbar>\n    <ion-title align="center">\n      Create Hangout\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="background">\n  <ion-list>\n    <!-- ion-item>\n        <ion-label fixed>Title</ion-label>\n        <ion-input type="text" value="" [(ngModel)]="title"></ion-input>\n    </ion-item -->\n    <ion-item class="card-bg">\n        <ion-label fixed>Description</ion-label>\n        <ion-textarea value="" [(ngModel)]="description"></ion-textarea>\n    </ion-item>\n    <ion-item class="card-bg">\n        <ion-label fixed>Date</ion-label>\n        <ion-datetime displayFormat="DD.MM.YYYY" pickerFormat="DD.MM.YYYY" [(ngModel)]="date"></ion-datetime>\n    </ion-item>\n    <ion-item class="card-bg">\n        <ion-label fixed>Start time</ion-label>\n        <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="startTime"></ion-datetime>\n    </ion-item>\n    <ion-item class="card-bg">\n        <ion-label fixed>End time</ion-label>\n        <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="endTime" class="card-bg"></ion-datetime>\n    </ion-item>\n    <ion-item class="card-bg">\n        <ion-label fixed>Location</ion-label>\n        <ion-input type="text" value="" [(ngModel)]="location"></ion-input>\n    </ion-item>\n    <ion-item class="card-bg">\n        <ion-label class="card-header">Type of event</ion-label>\n        <ion-select [(ngModel)]="type" class="card-bg">\n          <ion-option class="card-bg" value="beer">Beer</ion-option>\n          <ion-option class="card-bg" value="coffee">Coffee</ion-option>\n          <ion-option class="card-bg" value="food">Food</ion-option>\n        </ion-select>\n      </ion-item>\n    </ion-list>\n    <button ion-button round margin class="theme-button" (click)="handleClick()">CREATE</button>\n    <button ion-button round margin-left margin-right class="theme-button" (click)="cancelCreateEvent()">CANCEL</button>\n</ion-content>\n`/*ion-inline-end:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/pages/add-event/add-event.html"*/
+            selector: 'page-add-event',template:/*ion-inline-start:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/pages/add-event/add-event.html"*/`<ion-header>\n  <ion-navbar>\n    <ion-title align="center">\n      Create Hangout\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="background">\n  <ion-list>\n    <!-- ion-item>\n        <ion-label fixed>Title</ion-label>\n        <ion-input type="text" value="" [(ngModel)]="title"></ion-input>\n    </ion-item -->\n    <ion-item class="card-bg">\n        <ion-label fixed>Description</ion-label>\n        <ion-textarea value="" [(ngModel)]="description"></ion-textarea>\n    </ion-item>\n    <ion-item class="card-bg">\n        <ion-label fixed>Date</ion-label>\n        <ion-datetime displayFormat="DD.MM.YYYY" pickerFormat="DD.MM.YYYY" [(ngModel)]="date"></ion-datetime>\n    </ion-item>\n    <ion-item class="card-bg">\n        <ion-label fixed>Start time</ion-label>\n        <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="startTime"></ion-datetime>\n    </ion-item>\n    <ion-item class="card-bg">\n        <ion-label fixed>End time</ion-label>\n        <ion-datetime displayFormat="HH:mm" pickerFormat="HH:mm" [(ngModel)]="endTime" class="card-bg"></ion-datetime>\n    </ion-item>\n    <ion-item class="card-bg">\n        <ion-label fixed>Location</ion-label>\n        <ion-input type="text" value="" [(ngModel)]="location"></ion-input>\n    </ion-item>\n    <ion-item class="card-bg">\n        <ion-label class="card-header" id="eventType">Type of event</ion-label>\n        <ion-select [(ngModel)]="type" class="card-bg">\n          <ion-option class="card-bg" value="beer">Beer</ion-option>\n          <ion-option class="card-bg" value="coffee">Coffee</ion-option>\n          <ion-option class="card-bg" value="food">Food</ion-option>\n        </ion-select>\n      </ion-item>\n    </ion-list>\n    <button ion-button round margin class="theme-button" (click)="handleClick()">CREATE</button>\n    <button ion-button round margin-left margin-right class="theme-button" (click)="cancelCreateEvent()">CANCEL</button>\n</ion-content>\n`/*ion-inline-end:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/pages/add-event/add-event.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */]])
     ], AddEventPage);
@@ -334,6 +351,7 @@ var Hangout = (function () {
     function Hangout(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.tab = 'comments';
         this.userData = __WEBPACK_IMPORTED_MODULE_2__assets_data_UserData__["b" /* UserData */];
         this.comments = [];
         this.messages = [];
@@ -383,11 +401,13 @@ var Hangout = (function () {
     Hangout.prototype.segmentChanged = function (segment) {
         console.log(segment);
         if (segment == "messages") {
+            this.tab = "messages";
             document.getElementById("comments").hidden = true;
             document.getElementById("messages").hidden = false;
         }
         else {
             //also default
+            this.tab = 'comments';
             document.getElementById("comments").hidden = false;
             document.getElementById("messages").hidden = true;
         }
@@ -402,7 +422,7 @@ var Hangout = (function () {
     };
     Hangout = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'hangout',template:/*ion-inline-start:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/pages/hangout/hangout.html"*/`<ion-header>\n    <ion-navbar>\n      <ion-title>\n        Hangout with {{ userData[data.owner].name }}\n      </ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content padding class="background">\n  <ion-card>\n    <ion-navbar padding color="s-dark" class="card-header">\n      <ion-row>\n        <ion-col col-2>\n          <ion-icon item-start style="padding-right:10px" name="beer"></ion-icon>\n        </ion-col>\n        <ion-col col-10>\n          <h2 item-start class="card-text"> {{ data.description }}</h2>\n        </ion-col>\n      </ion-row>\n    </ion-navbar>\n    <ion-item>\n      <ion-icon item-start name="clock" color="s-dark"></ion-icon>\n      <h3> {{ date + " @ " + fromTime + " - " + toTime }} </h3>\n    </ion-item>\n    <ion-item>\n      <ion-icon name="pin" item-start color="s-dark"></ion-icon><h3>{{ data.place }}</h3>\n    </ion-item>\n    <ion-row>\n      <ion-col>\n        <ion-icon class="people-icon" color="s-dark" name="people"></ion-icon>\n        <ion-chip class="people-chip" color="secondary" *ngFor="let u of data.confirmedUsers" (click)="handleProfileClick(u)" >\n          <ion-label>{{userData[u].name}}</ion-label>\n        </ion-chip>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-icon class="people-icon" color="s-dark" name="beer"></ion-icon>\n        <ion-chip class="people-chip" color="secondary">\n          <ion-label>{{data.type}}</ion-label>\n        </ion-chip>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <button ion-button (click)="handleStateChange(status)" *ngIf="status == \'None\'" ion-button round outline margin class="theme-button">REQUEST TO JOIN</button>\n        <button ion-button *ngIf="status == \'Pending\'" ion-button round outline margin class="theme-button">PENDING REQUEST</button>\n        <button ion-button (click)="handleStateChange(status)" *ngIf="status == \'Confirmed\'" ion-button round outline margin class="theme-button">YOU\'RE GOING - CANCEL</button>\n        <button ion-button icon-left *ngIf="status == \'Owner\'" ion-button round outline margin class="theme-button"><ion-icon name="create" padding-right></ion-icon>EDIT</button>\n      </ion-col>\n    </ion-row>\n  </ion-card>\n\n  <div style="margin:10px;">\n    <ion-row class="theme-segments">\n      <ion-col text-center id="commentsTab" value="comments" class="theme-segment-activated" (click) = "segmentChanged(\'comments\')"><span>COMMENTS</span></ion-col>\n      <ion-col text-center id="messagesTab"  value="messages" (click) = "segmentChanged(\'messages\')"><span>MESSAGES</span></ion-col>\n    </ion-row>\n\n  <div id="comments" [ngSwitch]="commentSection">\n    <ion-list>\n        <comment-card *ngFor="let comment of comments" [content]="comment" [user]="userData[comment.author]"></comment-card>\n    </ion-list>\n    <ion-item>\n      <ion-input class="add-input" type="text" placeholder="Add comment"></ion-input>\n      <button class="add-input-button" (click)="addComment()" clear item-right><ion-icon name="send"></ion-icon></button>\n     </ion-item>\n  </div>\n\n  <div id="messages" [ngSwitch]="commentSection">\n        <div *ngIf="status == \'Confirmed\' || status == \'Owner\'">\n          <ion-list>\n            <comment-card *ngFor="let comment of messages" [content]="comment" [user]="userData[comment.author]"></comment-card>\n          </ion-list>\n          <ion-item color="light">\n          <ion-input class="add-input" [value]="newComment" (input)="setComment($event.target.value)" type="text" placeholder="Add comment"></ion-input>\n            <button class="add-input-button" (click)="addComment()" clear item-right><ion-icon class="icon" color="s-dark" name="send"></ion-icon></button>\n          </ion-item>\n        </div>\n        <div *ngIf="status != \'Confirmed\' && status != \'Owner\'">\n            <ion-card class="restricted-message"><ion-icon color="s-dark" name="lock"> </ion-icon><p>You will be able to access this section when you are accepted to the hangout.</p></ion-card>\n        </div>\n      </div>\n</div>\n\n</ion-content>\n`/*ion-inline-end:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/pages/hangout/hangout.html"*/,
+            selector: 'hangout',template:/*ion-inline-start:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/pages/hangout/hangout.html"*/`<ion-header>\n    <ion-navbar>\n      <ion-title>\n        Hangout with {{ userData[data.owner].name }}\n      </ion-title>\n    </ion-navbar>\n</ion-header>\n<ion-content padding class="background">\n  <ion-card>\n    <ion-navbar padding color="s-dark" class="card-header">\n      <ion-row>\n        <ion-col col-2>\n          <ion-icon item-start style="padding-right:10px" name="beer"></ion-icon>\n        </ion-col>\n        <ion-col col-10>\n          <h2 item-start class="card-text"> {{ data.description }}</h2>\n        </ion-col>\n      </ion-row>\n    </ion-navbar>\n    <ion-item>\n      <ion-icon item-start name="clock" color="s-dark"></ion-icon>\n      <h3> {{ date + " @ " + fromTime + " - " + toTime }} </h3>\n    </ion-item>\n    <ion-item>\n      <ion-icon name="pin" item-start color="s-dark"></ion-icon><h3>{{ data.place }}</h3>\n    </ion-item>\n    <ion-row>\n      <ion-col>\n        <ion-icon class="people-icon" color="s-dark" name="people"></ion-icon>\n        <ion-chip class="people-chip" color="secondary" *ngFor="let u of data.confirmedUsers" (click)="handleProfileClick(u)" >\n          <ion-label>{{userData[u].name}}</ion-label>\n        </ion-chip>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <ion-icon class="people-icon" color="s-dark" name="beer"></ion-icon>\n        <ion-chip class="people-chip" color="secondary">\n          <ion-label>{{data.type}}</ion-label>\n        </ion-chip>\n      </ion-col>\n    </ion-row>\n    <ion-row>\n      <ion-col>\n        <button ion-button (click)="handleStateChange(status)" *ngIf="status == \'None\'" ion-button round outline margin class="request-button">REQUEST TO JOIN</button>\n        <button ion-button *ngIf="status == \'Pending\'" ion-button round outline margin class="pending-button">PENDING REQUEST</button>\n        <button ion-button (click)="handleStateChange(status)" *ngIf="status == \'Confirmed\'" ion-button round outline margin class="cancel-button">YOU\'RE GOING - CANCEL</button>\n        <button ion-button icon-left *ngIf="status == \'Owner\'" ion-button round outline margin class="theme-button"><ion-icon name="create" padding-right></ion-icon>EDIT</button>\n      </ion-col>\n    </ion-row>\n  </ion-card>\n\n  <div style="margin:10px;">\n    <ion-row class="theme-segments">\n      <ion-col text-center id="commentsTab" value="comments" [ngClass]="(tab == \'comments\') ? \'theme-segment-active\' : \'theme-segment-inactive\'" (click) = "segmentChanged(\'comments\')"><span>COMMENTS</span></ion-col>\n      <ion-col text-center id="messagesTab"  value="messages" [ngClass]="(tab == \'messages\') ? \'theme-segment-active\' : \'theme-segment-inactive\'" (click) = "segmentChanged(\'messages\')"><span>MESSAGES</span></ion-col>\n    </ion-row>\n\n  <div id="comments" [ngSwitch]="commentSection">\n    <ion-list>\n        <comment-card *ngFor="let comment of comments" [content]="comment" [user]="userData[comment.author]"></comment-card>\n    </ion-list>\n    <ion-item>\n      <ion-input class="add-input" type="text" placeholder="Add comment"></ion-input>\n      <button class="add-input-button" (click)="addComment()" clear item-right><ion-icon name="send"></ion-icon></button>\n     </ion-item>\n  </div>\n\n  <div id="messages" [ngSwitch]="commentSection">\n        <div *ngIf="status == \'Confirmed\' || status == \'Owner\'">\n          <ion-list>\n            <comment-card *ngFor="let comment of messages" [content]="comment" [user]="userData[comment.author]"></comment-card>\n          </ion-list>\n          <ion-item color="light">\n          <ion-input class="add-input" [value]="newComment" (input)="setComment($event.target.value)" type="text" placeholder="Add comment"></ion-input>\n            <button class="add-input-button" (click)="addComment()" clear item-right><ion-icon class="icon" color="s-dark" name="send"></ion-icon></button>\n          </ion-item>\n        </div>\n        <div *ngIf="status != \'Confirmed\' && status != \'Owner\'">\n            <ion-card class="restricted-message"><ion-icon color="s-dark" name="lock"> </ion-icon><p>You will be able to access this section when you are accepted to the hangout.</p></ion-card>\n        </div>\n      </div>\n</div>\n\n</ion-content>\n`/*ion-inline-end:"/Users/Zuzze/Desktop/CodingProjects/mobile/just-a-beer/src/pages/hangout/hangout.html"*/,
             styles: ['hangout.scss']
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavParams */]])
