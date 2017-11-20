@@ -7,19 +7,6 @@
   color: $HIGHLIGHT_COLOR !important;
 }
 
-//modal radio button
-.alert-md [aria-checked=true] .alert-radio-icon .alert-radio-inner{
-  background: $HIGHLIGHT_COLOR !important;
-}
-
-.alert-md [aria-checked=true] .alert-radio-icon {
-  border-color: $HIGHLIGHT_COLOR !important;
-}
-
-.alert-md [aria-checked=true] .alert-radio-label {
-  color: $HIGHLIGHT_COLOR !important;
-}
-
 .alert-button-group .alert-button {
   color: $HIGHLIGHT_COLOR !important;
 }
@@ -31,6 +18,23 @@
 
 .alert-radio-button .alert-radio-label {
   color: $FONT_COLOR !important;
+}
+
+.alert-radio-inner {
+  color: $HIGHLIGHT_COLOR !important;
+}
+
+//modal radio button
+.alert-tappable[aria-checked=true] .alert-radio-icon {
+  border-color: $HIGHLIGHT_COLOR !important;
+}
+
+.alert-tappable[aria-checked="true"] .alert-radio-label {
+  color: $HIGHLIGHT_COLOR !important;
+}
+
+.alert-tappable[aria-checked="true"] .alert-radio-inner {
+  background: $HIGHLIGHT_COLOR !important;
 }
 
 .alert-head {
